@@ -1,0 +1,2 @@
+# EC16_on_ICE
+EC16-CPU running ECMON @ 20MHz on an ICE40UP5K-SG48 (ICY40-Board)
