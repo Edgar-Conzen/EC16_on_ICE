@@ -1,0 +1,7 @@
+-ver "C:/lscc/radiant/2023.1/ip/pmi/pmi_iCE40UP.v"
+-lib pmi -vhd "C:/lscc/radiant/2023.1/ip/pmi/pmi_iCE40UP.vhd"
+-ver "C:/Git/ec16_on_ice/Radiant/ec16_on_ice/pll_25_20/rtl/pll_25_20.v"
+-path "C:/Git/ec16_on_ice/Radiant/ec16_on_ice/pll_25_20" "C:/Git/ec16_on_ice/Radiant/ec16_on_ice"
+-vh2008
+-top pll_25_20
+-a "iCE40UP"

@@ -1,0 +1,8 @@
+###File created by Lattice CPE. Do not modify.###
+set_hierarchy_separator /
+create_clock -name {clk} -period 50 [get_nets clk]
+##Original File: C:/Git/ec16_on_ice/Radiant/ec16_on_ice/Timing.sdc
+create_clock -name {lsclk} -period 100000 [get_nets lsclk]
+##Original File: C:/Git/ec16_on_ice/Radiant/ec16_on_ice/Timing.sdc
+set_clock_groups -group [get_clocks clk] -group [get_clocks lsclk] -asynchronous
+##Original File: C:/Git/ec16_on_ice/Radiant/ec16_on_ice/Timing.sdc

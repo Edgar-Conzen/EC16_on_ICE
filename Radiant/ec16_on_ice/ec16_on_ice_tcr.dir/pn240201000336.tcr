@@ -1,0 +1,10 @@
+#Start recording tcl command: 1/31/2024 23:09:57
+#Project Location: C:/Git/ec16_on_ice/Radiant/ec16_on_ice; Project name: ec16_on_ice
+prj_open "C:/Git/ec16_on_ice/Radiant/ec16_on_ice/ec16_on_ice.rdf"
+prj_run PAR -impl impl_1
+prj_run Export -impl impl_1
+launch_programmer_prj "C:/lscc/radiant/2023.1"
+prj_remove_source "C:/Git/ec16_on_ice/source/icy40_source/icy40_dipsw_7segm.vhd"
+prj_run Synthesis -impl impl_1
+prj_run PAR -impl impl_1
+#Stop recording: 2/1/2024 00:03:36

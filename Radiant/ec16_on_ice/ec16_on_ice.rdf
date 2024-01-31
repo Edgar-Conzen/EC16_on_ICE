@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RadiantProject version="4.2" radiant="2023.1.1.200.1" title="ec16_on_ice" device="iCE40UP5K-SG48I" performance_grade="High-Performance_1.2V" default_implementation="impl_1">
+    <Options/>
+    <Implementation title="impl_1" dir="impl_1" description="impl_1" synthesis="lse" default_strategy="Strategy1">
+        <Options def_top="ec16_ext_mngt" top="icy40"/>
+        <Source name="../../source/icy40_source/icy40_top.vhd" type="VHDL" type_short="VHDL">
+            <Options top_module="icy40"/>
+        </Source>
+        <Source name="../../source/icy40_source/icy40_lib.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/icy40_source/icy40_led.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_top.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_ebr.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_sp.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_sf.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_sc.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_pc.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_mc.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_intmem.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_intinj.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_intflag.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_intctl.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_intcoord.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_ext_mngt.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_decode.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_spf.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_si.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_se.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_rti.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_pi.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_pf.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_oe.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_iw.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_ir.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_im.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_iee.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_ied.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_id.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_ia.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_ew.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_er.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_ea.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_ci.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_ce.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_cd.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_ai.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_afn.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_dec_ae.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/ec16_source/ec16_alu.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/fart_source/RippleFifo_Package.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/fart_source/ripple_fifo_slice.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/fart_source/ripple_fifo.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/fart_source/Fart_Tx_FSM.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/fart_source/Fart_Tx_BaudTick.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/fart_source/Fart_Transmitter.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/fart_source/Fart_Rx_BaudTick.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/fart_source/Fart_Receiver.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/fart_source/Fart_Package.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/fart_source/Fart.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../source/fart_source/Fart_Rx_FSM.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="pll_25_20/pll_25_20.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="source/impl_1.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
+        </Source>
+        <Source name="Timing.sdc" type="Pre-Synthesis Constraints File" type_short="SDC">
+            <Options/>
+        </Source>
+        <Source name="../../source/icy40_source/icy40.pdc" type="Physical Constraints File" type_short="PDC">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="ec16_on_ice1.sty"/>
+</RadiantProject>

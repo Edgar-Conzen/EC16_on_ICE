@@ -1,0 +1,870 @@
+<HTML>
+<HEAD>
+<TITLE>Synthesis Report</TITLE>
+<link href="file:///C:/lscc/radiant/2023.1/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="file:///C:/lscc/radiant/2023.1/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
+<style type="text/css">
+#toc {
+  position: fixed;
+  right: 2px;
+  top: 2px;
+  padding: 2px 5px 2px 5px;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+}
+#toc_list {
+  display: none;
+  }
+</style>
+
+<script type="text/javascript">
+<!--
+function showTocList() {
+var a = document.getElementById("toc_list");
+a.style.display = "block";
+}
+
+function hideTocList() {
+var a = document.getElementById("toc_list");
+if (a)
+    a.style.display = "none";
+}
+
+//-->
+</script>
+
+</HEAD>
+
+<BODY>
+
+<DIV id="content" onclick="hideTocList()"><PRE>
+<A name="Syn"></A><B><U><big>Synthesis Report</big></U></B>
+synthesis:  version Radiant Software (64-bit) 2023.1.1.200.1
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
+Wed Jan 31 23:56:32 2024
+
+
+Command Line:  C:\lscc\radiant\2023.1\ispfpga\bin\nt64\synthesis.exe -f ec16_on_ice_impl_1_lattice.synproj -gui -msgset C:/Git/ec16_on_ice/Radiant/ec16_on_ice/promote.xml 
+
+Synthesis options:
+The -a option is iCE40UP.
+The -t option is SG48.
+The -sp option is High-Performance_1.2V.
+The -p option is iCE40UP5K.
+                                                          
+
+
+##########################################################
+
+
+### Lattice Family     : iCE40UP
+
+
+### Device             : iCE40UP5K
+
+
+### Package            : SG48
+
+
+### Performance Grade  : High-Performance_1.2V
+
+
+                                                         
+
+
+INFO <35001786> - synthesis: User-Selected Strategy Settings
+Optimization goal = Area
+Top-level module name = icy40.
+Target frequency = 200.000000 MHz.
+Maximum fanout = 1000.
+Timing path count = 3 (default)
+RWCheckOnRam = 0
+
+BRAM utilization = 100.000000 %
+DSP usage = true
+DSP utilization = 100.000000 %
+fsm_encoding_style = binary
+resolve_mixed_drivers = 0
+fix_gated_clocks = 1
+
+
+Mux style = auto (Default)
+Use Carry Chain = true
+carry_chain_length = 0
+Loop Limit = 1950.
+Use IO Insertion = TRUE
+Use IO Reg = AUTO
+
+Resource Sharing = TRUE
+Propagate Constants = TRUE
+Remove Duplicate Registers = TRUE
+Output HDL file name = ec16_on_ice_impl_1.vm.
+ROM style = auto
+RAM style = auto
+The -comp option is FALSE.
+The -syn option is FALSE.
+-sdc option: SDC file input is ec16_on_ice_impl_1_cpe.ldc.
+-vh2008
+
+-path C:/Git/ec16_on_ice/Radiant/ec16_on_ice (searchpath added)
+-path C:/Git/ec16_on_ice/Radiant/ec16_on_ice/impl_1 (searchpath added)
+-path C:/Git/ec16_on_ice/Radiant/ec16_on_ice/pll_25_20 (searchpath added)
+-path C:/lscc/radiant/2023.1/ispfpga/ice40tp/data (searchpath added)
+Mixed language design
+Verilog design file = C:/lscc/radiant/2023.1/ip/pmi/pmi_iCE40UP.v
+Verilog design file = C:/Git/ec16_on_ice/Radiant/ec16_on_ice/pll_25_20/rtl/pll_25_20.v
+VHDL library = pmi
+VHDL design file = C:/lscc/radiant/2023.1/ip/pmi/pmi_iCE40UP.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/icy40_source/icy40_top.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/icy40_source/icy40_lib.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/icy40_source/icy40_led.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_top.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_ebr.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_sp.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_sf.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_sc.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_pc.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_mc.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_intmem.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_intinj.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_intflag.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_intctl.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_intcoord.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_ext_mngt.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_decode.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_spf.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_si.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_se.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_rti.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_pi.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_pf.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_oe.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_iw.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ir.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_im.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_iee.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ied.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_id.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ia.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ew.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_er.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ea.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ci.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ce.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_cd.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ai.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_afn.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ae.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/ec16_source/ec16_alu.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/fart_source/RippleFifo_Package.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/fart_source/ripple_fifo_slice.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/fart_source/ripple_fifo.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/fart_source/Fart_Tx_FSM.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/fart_source/Fart_Tx_BaudTick.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/fart_source/Fart_Transmitter.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/fart_source/Fart_Rx_BaudTick.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/fart_source/Fart_Receiver.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/fart_source/Fart_Package.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/fart_source/Fart.vhd
+VHDL library = work
+VHDL design file = C:/Git/ec16_on_ice/source/fart_source/Fart_Rx_FSM.vhd
+The -r option is OFF. [ Remove LOC Properties is OFF. ]
+WARNING <35935050> - synthesis: input port TRIM9 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM8 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM7 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM6 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM5 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM4 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM3 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM2 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM1 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM0 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port I is not connected on this instance. VDB-5050
+Compile design.
+Compile Design Begin
+Analyzing Verilog file c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v. VERI-1482
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(1): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_addsub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_addsub.v(40): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(2): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_add.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_add.v(50): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../common/adder/rtl/lscc_adder.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(3): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_complex_mult.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_complex_mult.v(52): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(4): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_counter.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_counter.v(39): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../common/counter/rtl/lscc_cntr.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(5): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_fifo.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_fifo.v(44): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../avant/fifo/rtl/lscc_fifo.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(6): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_fifo_dc.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_fifo_dc.v(47): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(7): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_mac.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_mac.v(52): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(8): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_multaddsubsum.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_multaddsubsum.v(53): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(9): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_multaddsub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_multaddsub.v(52): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(10): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_mult.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_mult.v(51): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(11): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_ram_dp.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ram_dp.v(48): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(12): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_ram_dq.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ram_dq.v(45): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(13): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_rom.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_rom.v(45): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../avant/rom/rtl/lscc_rom.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(14): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_sub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_sub.v(50): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(15): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_ram_dp_be.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ram_dp_be.v(49): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(16): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_ram_dq_be.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ram_dq_be.v(45): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.v(17): analyzing included file c:/lscc/radiant/2023.1/ip/pmi/pmi_dsp.v. VERI-1328
+Analyzing Verilog file c:/git/ec16_on_ice/radiant/ec16_on_ice/pll_25_20/rtl/pll_25_20.v. VERI-1482
+Analyzing VHDL file c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.vhd. VHDL-1481
+Analyzing VHDL file c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.vhd
+
+INFO <35921014> - synthesis: c:/lscc/radiant/2023.1/ip/pmi/pmi_ice40up.vhd(4): analyzing package components. VHDL-1014
+Analyzing VHDL file c:/git/ec16_on_ice/source/icy40_source/icy40_lib.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/icy40_source/icy40_lib.vhd
+
+INFO <35921014> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_lib.vhd(5): analyzing package icy40_lib. VHDL-1014
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_lib.vhd(114): analyzing entity icy40_reset. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_lib.vhd(121): analyzing architecture synth. VHDL-1010
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_lib.vhd(154): analyzing entity icy40_lsosc. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_lib.vhd(158): analyzing architecture synth. VHDL-1010
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_lib.vhd(174): analyzing entity icy40_ebr_i. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_lib.vhd(192): analyzing architecture synth. VHDL-1010
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_lib.vhd(241): analyzing entity icy40_sp16k16. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_lib.vhd(252): analyzing architecture synth. VHDL-1010
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_lib.vhd(281): analyzing entity icy40_dipsw_7segm. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_lib.vhd(302): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/icy40_source/icy40_top.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/icy40_source/icy40_top.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_top.vhd(33): analyzing entity icy40. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_top.vhd(74): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/icy40_source/icy40_led.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/icy40_source/icy40_led.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_led.vhd(16): analyzing entity icy40_led. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/icy40_source/icy40_led.vhd(26): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_top.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_top.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_top.vhd(15): analyzing entity ec16. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_top.vhd(34): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_ebr.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_ebr.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_ebr.vhd(16): analyzing entity icy40_led. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_ebr.vhd(26): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_sp.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_sp.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_sp.vhd(18): analyzing entity ec16_sp. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_sp.vhd(29): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_sf.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_sf.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_sf.vhd(17): analyzing entity ec16_sf. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_sf.vhd(32): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_sc.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_sc.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_sc.vhd(18): analyzing entity ec16_sc. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_sc.vhd(33): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_pc.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_pc.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_pc.vhd(19): analyzing entity ec16_pc. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_pc.vhd(30): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_mc.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_mc.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_mc.vhd(18): analyzing entity ec16_mc. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_mc.vhd(64): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_intmem.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_intmem.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_intmem.vhd(18): analyzing entity ec16_intmem. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_intmem.vhd(30): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_intinj.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_intinj.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_intinj.vhd(18): analyzing entity ec16_intinj. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_intinj.vhd(26): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_intflag.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_intflag.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_intflag.vhd(15): analyzing entity ec16_intflag. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_intflag.vhd(32): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_intctl.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_intctl.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_intctl.vhd(15): analyzing entity ec16_intctl. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_intctl.vhd(37): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_intcoord.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_intcoord.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_intcoord.vhd(16): analyzing entity ec16_intcoord. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_intcoord.vhd(30): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_ext_mngt.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_ext_mngt.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_ext_mngt.vhd(33): analyzing entity ec16_ext_mngt. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_ext_mngt.vhd(49): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_decode.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_decode.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_decode.vhd(33): analyzing entity ec16_decode. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_decode.vhd(49): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_spf.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_spf.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_spf.vhd(15): analyzing entity ec16_dec_spf. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_spf.vhd(24): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_si.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_si.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_si.vhd(15): analyzing entity ec16_dec_si. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_si.vhd(22): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_se.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_se.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_se.vhd(15): analyzing entity ec16_dec_se. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_se.vhd(23): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_rti.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_rti.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_rti.vhd(15): analyzing entity ec16_dec_rti. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_rti.vhd(23): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_pi.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_pi.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_pi.vhd(17): analyzing entity ec16_dec_pi. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_pi.vhd(27): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_pf.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_pf.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_pf.vhd(16): analyzing entity ec16_dec_pf. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_pf.vhd(27): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_oe.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_oe.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_oe.vhd(15): analyzing entity ec16_dec_oe. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_oe.vhd(24): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_iw.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_iw.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_iw.vhd(15): analyzing entity ec16_dec_iw. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_iw.vhd(23): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ir.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ir.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ir.vhd(15): analyzing entity ec16_dec_ir. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ir.vhd(24): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_im.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_im.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_im.vhd(15): analyzing entity ec16_dec_im. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_im.vhd(22): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_iee.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_iee.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_iee.vhd(15): analyzing entity ec16_dec_iee. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_iee.vhd(22): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ied.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ied.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ied.vhd(15): analyzing entity ec16_dec_ied. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ied.vhd(22): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_id.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_id.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_id.vhd(15): analyzing entity ec16_dec_id. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_id.vhd(23): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ia.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ia.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ia.vhd(15): analyzing entity ec16_dec_ia. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ia.vhd(24): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ew.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ew.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ew.vhd(15): analyzing entity ec16_dec_ew. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ew.vhd(23): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_er.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_er.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_er.vhd(15): analyzing entity ec16_dec_er. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_er.vhd(28): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ea.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ea.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ea.vhd(18): analyzing entity ec16_dec_ea. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ea.vhd(26): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ci.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ci.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ci.vhd(15): analyzing entity ec16_dec_ci. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ci.vhd(22): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ce.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ce.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ce.vhd(15): analyzing entity ec16_dec_ce. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ce.vhd(22): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_cd.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_cd.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_cd.vhd(15): analyzing entity ec16_dec_cd. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_cd.vhd(22): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ai.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ai.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ai.vhd(15): analyzing entity ec16_dec_ai. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ai.vhd(24): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_afn.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_afn.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_afn.vhd(15): analyzing entity ec16_dec_afn. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_afn.vhd(22): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ae.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ae.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ae.vhd(15): analyzing entity ec16_dec_ae. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_dec_ae.vhd(24): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_alu.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/ec16_source/ec16_alu.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_alu.vhd(18): analyzing entity ec16_alu. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/ec16_source/ec16_alu.vhd(33): analyzing architecture syn. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/ripplefifo_package.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/ripplefifo_package.vhd
+
+INFO <35921014> - synthesis: c:/git/ec16_on_ice/source/fart_source/ripplefifo_package.vhd(5): analyzing package ripplefifo_package. VHDL-1014
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/ripple_fifo_slice.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/ripple_fifo_slice.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/fart_source/ripple_fifo_slice.vhd(5): analyzing entity ripple_fifo_slice. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/fart_source/ripple_fifo_slice.vhd(19): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/ripple_fifo.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/ripple_fifo.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/fart_source/ripple_fifo.vhd(7): analyzing entity ripple_fifo. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/fart_source/ripple_fifo.vhd(22): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_package.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_package.vhd
+
+INFO <35921014> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart_package.vhd(5): analyzing package fart_package. VHDL-1014
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_tx_fsm.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_tx_fsm.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart_tx_fsm.vhd(7): analyzing entity tx_fsm. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart_tx_fsm.vhd(19): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_tx_baudtick.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_tx_baudtick.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart_tx_baudtick.vhd(7): analyzing entity tx_baudtick. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart_tx_baudtick.vhd(15): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_transmitter.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_transmitter.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart_transmitter.vhd(8): analyzing entity fart_transmitter. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart_transmitter.vhd(22): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_rx_baudtick.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_rx_baudtick.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart_rx_baudtick.vhd(7): analyzing entity rx_baudtick. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart_rx_baudtick.vhd(15): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_receiver.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_receiver.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart_receiver.vhd(8): analyzing entity fart_receiver. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart_receiver.vhd(22): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart.vhd(7): analyzing entity fart. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart.vhd(26): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_rx_fsm.vhd. VHDL-1481
+Analyzing VHDL file c:/git/ec16_on_ice/source/fart_source/fart_rx_fsm.vhd
+
+INFO <35921012> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart_rx_fsm.vhd(7): analyzing entity rx_fsm. VHDL-1012
+INFO <35921010> - synthesis: c:/git/ec16_on_ice/source/fart_source/fart_rx_fsm.vhd(19): analyzing architecture synth. VHDL-1010
+INFO <35921504> - synthesis: The default VHDL library search path is now "C:/Git/ec16_on_ice/Radiant/ec16_on_ice/impl_1". VHDL-1504
+Top module language type = VHDL.
+WARNING <35935049> - synthesis: input port sclk_i remains unconnected for this instance. VDB-5049
+WARNING <35935049> - synthesis: input port sdi_i remains unconnected for this instance. VDB-5049
+Top module name (VHDL, mixed language): icy40
+                                                         
+
+
+### Number of Logic Cells: 5280
+
+
+### Number of RAM Blocks: 30
+
+
+### Number of DSP Blocks: 8
+
+
+### Number of PLLs: 1
+
+
+### Number of IO Pins: 56
+
+
+##########################################################
+
+
+                                                         
+
+
+WARNING <35001771> - synthesis: Initial value found on net clk will be ignored due to unrecognized driver type
+WARNING <35001771> - synthesis: Initial value found on net res[3]_keep will be ignored due to unrecognized driver type
+WARNING <35001771> - synthesis: Initial value found on net res[2]_keep will be ignored due to unrecognized driver type
+WARNING <35001771> - synthesis: Initial value found on net res[1]_keep will be ignored due to unrecognized driver type
+WARNING <35001771> - synthesis: Initial value found on net res[0]_keep will be ignored due to unrecognized driver type
+WARNING <35935049> - synthesis: input port sclk_i remains unconnected for this instance. VDB-5049
+WARNING <35935049> - synthesis: input port sdi_i remains unconnected for this instance. VDB-5049
+WARNING <35931002> - synthesis: c:/git/ec16_on_ice/radiant/ec16_on_ice/pll_25_20/rtl/pll_25_20.v(139): net \pll20/lscc_pll_inst/sclk_i does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/git/ec16_on_ice/radiant/ec16_on_ice/pll_25_20/rtl/pll_25_20.v(140): net \pll20/lscc_pll_inst/sdi_i does not have a driver. VDB-1002
+######## Missing driver on net \pll20/lscc_pll_inst/sclk_i. Patching with GND.
+######## Missing driver on net \pll20/lscc_pll_inst/sdi_i. Patching with GND.
+INFO <35001774> - synthesis: Extracted state machine for register '\icy40_fart/c_fart_transmitter/c_tx_fsm/tx_shift_cs' with sequential encoding
+State machine has 11 reachable states with original encodings of:
+
+ 0000 
+
+ 0001 
+
+ 0010 
+
+ 0011 
+
+ 0100 
+
+ 0101 
+
+ 0110 
+
+ 0111 
+
+ 1000 
+
+ 1001 
+
+ 1010 
+
+INFO <35001774> - synthesis: Extracted state machine for register '\icy40_fart/c_fart_receiver/c_rx_fsm/rx_shift_cs' with sequential encoding
+State machine has 11 reachable states with original encodings of:
+
+ 0000 
+
+ 0001 
+
+ 0010 
+
+ 0011 
+
+ 0100 
+
+ 0101 
+
+ 0110 
+
+ 0111 
+
+ 1000 
+
+ 1001 
+
+ 1010 
+
+INFO <35001774> - synthesis: Extracted state machine for register '\sw_disp/cnt12' with sequential encoding
+State machine has 16 reachable states with original encodings of:
+
+ 0000 
+
+ 0001 
+
+ 0010 
+
+ 0011 
+
+ 0100 
+
+ 0101 
+
+ 0110 
+
+ 0111 
+
+ 1000 
+
+ 1001 
+
+ 1010 
+
+ 1011 
+
+ 1100 
+
+ 1101 
+
+ 1110 
+
+ 1111 
+
+
+
+
+######## Found 2 RTL RAMs in the design.
+######## Mapping RTL RAM \bootram/ram to 2 EBR blocks in PSEUDO_DUAL_PORT Mode
+
+######## Mapping RTL RAM \up/intmemory/ram to 1 EBR blocks in PSEUDO_DUAL_PORT Mode
+
+Starting design annotation....
+WARNING <70009502> - synthesis: The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+WARNING <70009502> - synthesis: The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+
+Starting full timing analysis...
+Starting design annotation....
+WARNING <70009502> - synthesis: The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+WARNING <70009502> - synthesis: The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+
+Starting full timing analysis...
+Starting design annotation....
+WARNING <70009502> - synthesis: The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+WARNING <70009502> - synthesis: The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+
+Starting full timing analysis...
+Starting design annotation....
+WARNING <70009502> - synthesis: The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+WARNING <70009502> - synthesis: The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+
+Starting full timing analysis...
+INFO <35002039> - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
+
+
+<A name="lse_area"></A><B><U><big>Area Report</big></U></B>
+
+################### Begin Area Report (icy40)######################
+Number of register bits => 257 of 5280 (4 % )
+EBR_B => 3
+CCU2 => 38
+FD1P3XZ => 257
+IB => 8
+INV => 1
+IOL_B => 7
+LSOSC_CORE => 1
+LUT4 => 748
+OB => 10
+PLL_B => 1
+VFB_B => 1
+################### End Area Report ##################
+Number of odd-length carry chains : 0
+Number of even-length carry chains : 6
+
+
+<A name="lse_clock"></A><B><U><big>Clock Report</big></U></B>
+
+################### Begin Clock Report ######################
+Clock Nets
+Number of Clocks: 3
+  Net : pll20/lscc_pll_inst/OUTGLOBAL, loads : 0
+  Net : ls_clk/CLKLF, loads : 1
+  Net : CLK_IN_c, loads : 1
+Clock Enable Nets
+Number of Clock Enables: 0
+Highest fanout non-clock nets
+Top 10 highest fanout non-clock nets:
+  Net : glue/opc15_8[2], loads : 61
+  Net : up/opc15_8[0], loads : 55
+  Net : up/opc15_8[6], loads : 49
+  Net : reset_generator/reset, loads : 48
+  Net : up/opc15_8[7], loads : 48
+  Net : up/opc15_8[3], loads : 48
+  Net : up/opc15_8[1], loads : 43
+  Net : up/opc15_8[4], loads : 36
+  Net : up/opc15_8[5], loads : 35
+  Net : up/sc/state_0, loads : 32
+################### End Clock Report ##################
+
+Peak Memory Usage: 156 MB
+
+--------------------------------------------------------------
+Total CPU Time: 0 secs 
+Total REAL Time: 4 secs 
+--------------------------------------------------------------
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></DIV>
+
+<DIV id="toc" class="radiant"><span onmousemove="showTocList()">Contents</span>
+<UL id="toc_list">
+<LI><A href=#Syn>Top</A></LI>
+<LI><A href=#lse_area>Area Report</A></LI>
+<LI><A href=#lse_clock>Clock Report</A></LI>
+</UL>
+</DIV>
+
+<button id="back_to_top" class="radiant" onclick="scrollToTop()">&lt;</button>
+<script type="text/javascript">
+<!--
+var scrollStep = 0;
+function scrollToTop(){
+  var funScroll = function() {
+    var top = document.body.scrollTop;
+    if (top == 0) {
+      scrollStep = 0;
+      return;
+    }
+    if (scrollStep == 0)
+      scrollStep = top/20 + 1;
+    top -= scrollStep;
+    if (top < 0)
+      top = 0;
+    document.body.scrollTop = top;
+    requestAnimationFrame(funScroll);
+  };
+  funScroll();
+}
+
+window.addEventListener('scroll', function(e) {
+  var backToTop = document.getElementById('back_to_top')
+  if (document.body.scrollTop > 0) {
+    backToTop.style.display = 'block';
+  } else {	backToTop.style.display = 'none'  }});
+
+//-->
+</script>
+
+<style type="text/css">
+#back_to_top {
+  bottom:20px; right:20px;
+  width:30px; height:30px;
+  font-size: 20px;
+  padding: 2px 5px 2px 5px;
+  position:fixed;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+  display:none;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin:50% 50%;
+}
+#back_to_top:focus {
+  outline-width:0px;
+}
+</style>
+
+</BODY>
+

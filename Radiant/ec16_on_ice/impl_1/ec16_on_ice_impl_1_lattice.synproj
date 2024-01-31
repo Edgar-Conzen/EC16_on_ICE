@@ -1,0 +1,103 @@
+-a "iCE40UP"
+-p iCE40UP5K
+-t SG48
+-sp "High-Performance_1.2V"
+-frequency 200
+-optimization_goal Area
+-bram_utilization 100
+-ramstyle Auto
+-romstyle auto
+-dsp_utilization 100
+-use_dsp 1
+-use_carry_chain 1
+-carry_chain_length 0
+
+-resource_sharing 1
+-propagate_constants 1
+-remove_duplicate_regs 1
+
+-max_fanout 1000
+-fsm_encoding_style Binary
+
+-fix_gated_clocks 1
+-loop_limit 1950
+
+
+
+
+
+
+-use_io_reg auto
+-vh2008
+
+
+
+
+
+-use_io_insertion 1
+-resolve_mixed_drivers 0
+-sdc "ec16_on_ice_impl_1_cpe.ldc"
+-path "C:/Git/ec16_on_ice/Radiant/ec16_on_ice/pll_25_20"
+-path "C:/lscc/radiant/2023.1/ispfpga/ice40tp/data" "C:/Git/ec16_on_ice/Radiant/ec16_on_ice/impl_1" "C:/Git/ec16_on_ice/Radiant/ec16_on_ice"
+-ver "C:/lscc/radiant/2023.1/ip/pmi/pmi_iCE40UP.v"
+-lib pmi -vhd "C:/lscc/radiant/2023.1/ip/pmi/pmi_iCE40UP.vhd"
+-lib "work" -vhd "C:/Git/ec16_on_ice/source/icy40_source/icy40_top.vhd"
+"C:/Git/ec16_on_ice/source/icy40_source/icy40_lib.vhd"
+"C:/Git/ec16_on_ice/source/icy40_source/icy40_led.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_top.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_ebr.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_sp.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_sf.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_sc.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_pc.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_mc.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_intmem.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_intinj.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_intflag.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_intctl.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_intcoord.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_ext_mngt.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_decode.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_spf.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_si.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_se.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_rti.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_pi.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_pf.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_oe.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_iw.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ir.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_im.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_iee.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ied.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_id.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ia.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ew.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_er.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ea.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ci.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ce.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_cd.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ai.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_afn.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_dec_ae.vhd"
+"C:/Git/ec16_on_ice/source/ec16_source/ec16_alu.vhd"
+"C:/Git/ec16_on_ice/source/fart_source/RippleFifo_Package.vhd"
+"C:/Git/ec16_on_ice/source/fart_source/ripple_fifo_slice.vhd"
+"C:/Git/ec16_on_ice/source/fart_source/ripple_fifo.vhd"
+"C:/Git/ec16_on_ice/source/fart_source/Fart_Tx_FSM.vhd"
+"C:/Git/ec16_on_ice/source/fart_source/Fart_Tx_BaudTick.vhd"
+"C:/Git/ec16_on_ice/source/fart_source/Fart_Transmitter.vhd"
+"C:/Git/ec16_on_ice/source/fart_source/Fart_Rx_BaudTick.vhd"
+"C:/Git/ec16_on_ice/source/fart_source/Fart_Receiver.vhd"
+"C:/Git/ec16_on_ice/source/fart_source/Fart_Package.vhd"
+"C:/Git/ec16_on_ice/source/fart_source/Fart.vhd"
+"C:/Git/ec16_on_ice/source/fart_source/Fart_Rx_FSM.vhd"
+-ver "C:/Git/ec16_on_ice/Radiant/ec16_on_ice/pll_25_20/rtl/pll_25_20.v"
+
+
+-path "C:/Git/ec16_on_ice/Radiant/ec16_on_ice"
+-top icy40
+-udb "ec16_on_ice_impl_1_rtl.udb"
+-output_hdl "ec16_on_ice_impl_1.vm"
+

@@ -1,0 +1,494 @@
+---------------------------------------------------
+Report for cell icy40
+   Instance path: icy40
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                 IOLGC	       7.00        100.0
+                                  LUT4	        940        100.0
+                               LUTGATE	        864        100.0
+                                LUTCCU	         76        100.0
+                                 IOREG	          7        100.0
+                                 IOBUF	         18        100.0
+                                PFUREG	        257        100.0
+                                   EBR	          3        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                                  ec16	          1        61.0
+                           ec16_decode	          1         6.8
+             fart(clockspeed=20000000)	          1         8.8
+                     icy40_dipsw_7segm	          1         4.3
+                     icy40_ebr_i(1,31)	          1         0.0
+                             icy40_led	          1         0.0
+                           icy40_lsosc	          1         0.0
+                           icy40_reset	          1         0.1
+                         icy40_sp16k16	          1         0.0
+                             pll_25_20	          1         0.0
+---------------------------------------------------
+Report for cell icy40_led
+   Instance path: icy40/led_port
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                 IOLGC	       5.00        71.4
+                                 IOREG	          5        71.4
+---------------------------------------------------
+Report for cell icy40_reset
+   Instance path: icy40/reset_generator
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          1         0.1
+                               LUTGATE	          1         0.1
+                                PFUREG	          4         1.6
+---------------------------------------------------
+Report for cell fart(clockspeed=20000000)
+   Instance path: icy40/icy40_fart
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         83         8.8
+                               LUTGATE	         63         7.3
+                                LUTCCU	         20        26.3
+                                PFUREG	        102        39.7
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+fart_receiver(clockspeed=20000000,rx_nstages=2)	          1         3.9
+fart_transmitter(clockspeed=20000000,tx_nstages=2)	          1         4.5
+---------------------------------------------------
+Report for cell fart_transmitter(clockspeed=20000000,tx_nstages=2)
+   Instance path: icy40/icy40_fart/c_fart_transmitter
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         42         4.5
+                               LUTGATE	         32         3.7
+                                LUTCCU	         10        13.2
+                                PFUREG	         47        18.3
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                ripple_fifo(nstages=2)	          1         0.4
+           tx_fsm(clockspeed=20000000)	          1         3.9
+---------------------------------------------------
+Report for cell ripple_fifo(nstages=2)
+   Instance path: icy40/icy40_fart/c_fart_transmitter/c_tx_rfifo
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          4         0.4
+                               LUTGATE	          4         0.5
+                                PFUREG	         18         7.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+           ripple_fifo_slice(dwidth=8)	          1         0.2
+        ripple_fifo_slice(dwidth=8)_U3	          1         0.2
+---------------------------------------------------
+Report for cell ripple_fifo_slice(dwidth=8)
+   Instance path: icy40/icy40_fart/c_fart_transmitter/c_tx_rfifo/fifo_stage[2].ffsl
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          2         0.2
+                               LUTGATE	          2         0.2
+                                PFUREG	          9         3.5
+---------------------------------------------------
+Report for cell ripple_fifo_slice(dwidth=8)_U3
+   Instance path: icy40/icy40_fart/c_fart_transmitter/c_tx_rfifo/fifo_stage[1].ffsl
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          2         0.2
+                               LUTGATE	          2         0.2
+                                PFUREG	          9         3.5
+---------------------------------------------------
+Report for cell tx_fsm(clockspeed=20000000)
+   Instance path: icy40/icy40_fart/c_fart_transmitter/c_tx_fsm
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         37         3.9
+                               LUTGATE	         27         3.1
+                                LUTCCU	         10        13.2
+                                PFUREG	         23         8.9
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+      tx_baudtick(clockspeed=20000000)	          1         2.3
+---------------------------------------------------
+Report for cell tx_baudtick(clockspeed=20000000)
+   Instance path: icy40/icy40_fart/c_fart_transmitter/c_tx_fsm/c_tx_baudtick
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         22         2.3
+                               LUTGATE	         12         1.4
+                                LUTCCU	         10        13.2
+                                PFUREG	          9         3.5
+---------------------------------------------------
+Report for cell fart_receiver(clockspeed=20000000,rx_nstages=2)
+   Instance path: icy40/icy40_fart/c_fart_receiver
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         37         3.9
+                               LUTGATE	         27         3.1
+                                LUTCCU	         10        13.2
+                                PFUREG	         47        18.3
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+             ripple_fifo(nstages=2)_U6	          1         0.3
+           rx_fsm(clockspeed=20000000)	          1         3.4
+---------------------------------------------------
+Report for cell ripple_fifo(nstages=2)_U6
+   Instance path: icy40/icy40_fart/c_fart_receiver/c_rx_rfifo
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          3         0.3
+                               LUTGATE	          3         0.3
+                                PFUREG	         18         7.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+        ripple_fifo_slice(dwidth=8)_U4	          1         0.2
+        ripple_fifo_slice(dwidth=8)_U5	          1         0.1
+---------------------------------------------------
+Report for cell ripple_fifo_slice(dwidth=8)_U4
+   Instance path: icy40/icy40_fart/c_fart_receiver/c_rx_rfifo/fifo_stage[2].ffsl
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          2         0.2
+                               LUTGATE	          2         0.2
+                                PFUREG	          9         3.5
+---------------------------------------------------
+Report for cell ripple_fifo_slice(dwidth=8)_U5
+   Instance path: icy40/icy40_fart/c_fart_receiver/c_rx_rfifo/fifo_stage[1].ffsl
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          1         0.1
+                               LUTGATE	          1         0.1
+                                PFUREG	          9         3.5
+---------------------------------------------------
+Report for cell rx_fsm(clockspeed=20000000)
+   Instance path: icy40/icy40_fart/c_fart_receiver/c_rx_fsm
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         32         3.4
+                               LUTGATE	         22         2.5
+                                LUTCCU	         10        13.2
+                                PFUREG	         23         8.9
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+      rx_baudtick(clockspeed=20000000)	          1         2.7
+---------------------------------------------------
+Report for cell rx_baudtick(clockspeed=20000000)
+   Instance path: icy40/icy40_fart/c_fart_receiver/c_rx_fsm/c_rx_baudtick
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         25         2.7
+                               LUTGATE	         15         1.7
+                                LUTCCU	         10        13.2
+                                PFUREG	          9         3.5
+---------------------------------------------------
+Report for cell pll_25_20
+   Instance path: icy40/pll20
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+pll_25_20_ipgen_lscc_pll(DIVF="50",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="25.000000")	          1         0.0
+---------------------------------------------------
+Report for cell pll_25_20_ipgen_lscc_pll(DIVF="50",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="25.000000")
+   Instance path: icy40/pll20/lscc_pll_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+---------------------------------------------------
+Report for cell ec16
+   Instance path: icy40/up
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        573        61.0
+                               LUTGATE	        517        59.8
+                                LUTCCU	         56        73.7
+                                PFUREG	         93        36.2
+                                   EBR	          1        33.3
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                              ec16_alu	          1        12.8
+                           ec16_intctl	          1         5.5
+                           ec16_intinj	          1         0.1
+                           ec16_intmem	          1         0.0
+                               ec16_mc	          1         7.9
+                               ec16_pc	          1         6.5
+                               ec16_sc	          1         1.1
+                               ec16_sf	          1         0.7
+                               ec16_sp	          1         4.5
+---------------------------------------------------
+Report for cell ec16_sf
+   Instance path: icy40/up/status
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          7         0.7
+                               LUTGATE	          7         0.8
+                                PFUREG	          5         1.9
+---------------------------------------------------
+Report for cell ec16_sp
+   Instance path: icy40/up/stackpointer
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         42         4.5
+                               LUTGATE	         22         2.5
+                                LUTCCU	         20        26.3
+                                PFUREG	          8         3.1
+---------------------------------------------------
+Report for cell ec16_sc
+   Instance path: icy40/up/sc
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         10         1.1
+                               LUTGATE	         10         1.2
+                                PFUREG	          4         1.6
+---------------------------------------------------
+Report for cell ec16_pc
+   Instance path: icy40/up/pc
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         61         6.5
+                               LUTGATE	         43         5.0
+                                LUTCCU	         18        23.7
+                                PFUREG	         16         6.2
+---------------------------------------------------
+Report for cell ec16_mc
+   Instance path: icy40/up/mc
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         74         7.9
+                               LUTGATE	         74         8.6
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                           ec16_dec_ae	          1         0.9
+                           ec16_dec_ai	          1         2.0
+                           ec16_dec_ce	          1         0.1
+                           ec16_dec_ea	          1         0.5
+                           ec16_dec_er	          1         0.3
+                           ec16_dec_ew	          1         0.2
+                           ec16_dec_ia	          1         0.7
+                          ec16_dec_iee	          1         0.1
+                           ec16_dec_ir	          1         0.2
+                           ec16_dec_iw	          1         0.3
+                           ec16_dec_oe	          1         0.2
+                           ec16_dec_pf	          1         1.5
+                           ec16_dec_pi	          1         0.2
+                          ec16_dec_rti	          1         0.1
+                           ec16_dec_se	          1         0.1
+                          ec16_dec_spf	          1         0.3
+---------------------------------------------------
+Report for cell ec16_dec_spf
+   Instance path: icy40/up/mc/inst_dec_spf
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          3         0.3
+                               LUTGATE	          3         0.3
+---------------------------------------------------
+Report for cell ec16_dec_se
+   Instance path: icy40/up/mc/inst_dec_se
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          1         0.1
+                               LUTGATE	          1         0.1
+---------------------------------------------------
+Report for cell ec16_dec_rti
+   Instance path: icy40/up/mc/inst_dec_rti
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          1         0.1
+                               LUTGATE	          1         0.1
+---------------------------------------------------
+Report for cell ec16_dec_pi
+   Instance path: icy40/up/mc/inst_dec_pi
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          2         0.2
+                               LUTGATE	          2         0.2
+---------------------------------------------------
+Report for cell ec16_dec_pf
+   Instance path: icy40/up/mc/inst_dec_pf
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         14         1.5
+                               LUTGATE	         14         1.6
+---------------------------------------------------
+Report for cell ec16_dec_oe
+   Instance path: icy40/up/mc/inst_dec_oe
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          2         0.2
+                               LUTGATE	          2         0.2
+---------------------------------------------------
+Report for cell ec16_dec_iw
+   Instance path: icy40/up/mc/inst_dec_iw
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          3         0.3
+                               LUTGATE	          3         0.3
+---------------------------------------------------
+Report for cell ec16_dec_ir
+   Instance path: icy40/up/mc/inst_dec_ir
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          2         0.2
+                               LUTGATE	          2         0.2
+---------------------------------------------------
+Report for cell ec16_dec_iee
+   Instance path: icy40/up/mc/inst_dec_iee
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          1         0.1
+                               LUTGATE	          1         0.1
+---------------------------------------------------
+Report for cell ec16_dec_ia
+   Instance path: icy40/up/mc/inst_dec_ia
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          7         0.7
+                               LUTGATE	          7         0.8
+---------------------------------------------------
+Report for cell ec16_dec_ew
+   Instance path: icy40/up/mc/inst_dec_ew
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          2         0.2
+                               LUTGATE	          2         0.2
+---------------------------------------------------
+Report for cell ec16_dec_er
+   Instance path: icy40/up/mc/inst_dec_er
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          3         0.3
+                               LUTGATE	          3         0.3
+---------------------------------------------------
+Report for cell ec16_dec_ea
+   Instance path: icy40/up/mc/inst_dec_ea
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          5         0.5
+                               LUTGATE	          5         0.6
+---------------------------------------------------
+Report for cell ec16_dec_ce
+   Instance path: icy40/up/mc/inst_dec_ce
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          1         0.1
+                               LUTGATE	          1         0.1
+---------------------------------------------------
+Report for cell ec16_dec_ai
+   Instance path: icy40/up/mc/inst_dec_ai
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         19         2.0
+                               LUTGATE	         19         2.2
+---------------------------------------------------
+Report for cell ec16_dec_ae
+   Instance path: icy40/up/mc/inst_dec_ae
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          8         0.9
+                               LUTGATE	          8         0.9
+---------------------------------------------------
+Report for cell ec16_intmem
+   Instance path: icy40/up/intmemory
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1        33.3
+---------------------------------------------------
+Report for cell ec16_intinj
+   Instance path: icy40/up/intinj
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          1         0.1
+                               LUTGATE	          1         0.1
+---------------------------------------------------
+Report for cell ec16_intctl
+   Instance path: icy40/up/intctl
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         52         5.5
+                               LUTGATE	         52         6.0
+                                PFUREG	         28        10.9
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                         ec16_intcoord	          1         3.1
+---------------------------------------------------
+Report for cell ec16_intcoord
+   Instance path: icy40/up/intctl/c_intcoord
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         29         3.1
+                               LUTGATE	         29         3.4
+                                PFUREG	         16         6.2
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                          ec16_intflag	          1         0.6
+                       ec16_intflag_U0	          1         0.7
+                       ec16_intflag_U1	          1         0.6
+                       ec16_intflag_U2	          1         1.1
+---------------------------------------------------
+Report for cell ec16_intflag
+   Instance path: icy40/up/intctl/c_intcoord/gen03[3].gen3.intflag
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          6         0.6
+                               LUTGATE	          6         0.7
+                                PFUREG	          4         1.6
+---------------------------------------------------
+Report for cell ec16_intflag_U0
+   Instance path: icy40/up/intctl/c_intcoord/gen03[2].gen12.intflag
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          7         0.7
+                               LUTGATE	          7         0.8
+                                PFUREG	          4         1.6
+---------------------------------------------------
+Report for cell ec16_intflag_U1
+   Instance path: icy40/up/intctl/c_intcoord/gen03[1].gen12.intflag
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          6         0.6
+                               LUTGATE	          6         0.7
+                                PFUREG	          4         1.6
+---------------------------------------------------
+Report for cell ec16_intflag_U2
+   Instance path: icy40/up/intctl/c_intcoord/gen03[0].gen0.intflag
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         10         1.1
+                               LUTGATE	         10         1.2
+                                PFUREG	          4         1.6
+---------------------------------------------------
+Report for cell ec16_alu
+   Instance path: icy40/up/alu
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        120        12.8
+                               LUTGATE	        102        11.8
+                                LUTCCU	         18        23.7
+---------------------------------------------------
+Report for cell icy40_dipsw_7segm
+   Instance path: icy40/sw_disp
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                 IOLGC	       2.00        28.6
+                                  LUT4	         40         4.3
+                               LUTGATE	         40         4.6
+                                 IOREG	          2        28.6
+                                PFUREG	         53        20.6
+---------------------------------------------------
+Report for cell ec16_decode
+   Instance path: icy40/glue
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         64         6.8
+                               LUTGATE	         64         7.4
+                                PFUREG	          5         1.9
+---------------------------------------------------
+Report for cell icy40_ebr_i(1,31)
+   Instance path: icy40/bootram
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          2        66.7
+---------------------------------------------------
+Report for cell icy40_sp16k16
+   Instance path: icy40/spram
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+---------------------------------------------------
+Report for cell icy40_lsosc
+   Instance path: icy40/ls_clk
+                     Cell usage:
+                                  cell	      count    Res Usage(%)

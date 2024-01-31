@@ -1,0 +1,579 @@
+----------------------------------------------------------------------
+Report for cell icy40.TECH
+Register bits:  257 of 5280 (4.867%)
+I/O cells:      18
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         3          100.0
+                               CCU2        38          100.0
+                            FD1P3XZ       257          100.0
+                                 IB         8          100.0
+                                INV         1          100.0
+                              IOL_B         7          100.0
+                         LSOSC_CORE         1          100.0
+                               LUT4       748          100.0
+                                 OB        10          100.0
+                              PLL_B         1          100.0
+                              VFB_B         1          100.0
+SUB MODULES
+                               ec16         1
+                           ec16_alu         1
+                        ec16_dec_ae         1
+                        ec16_dec_ai         1
+                        ec16_dec_ce         1
+                        ec16_dec_ea         1
+                        ec16_dec_er         1
+                        ec16_dec_ew         1
+                        ec16_dec_ia         1
+                       ec16_dec_iee         1
+                        ec16_dec_ir         1
+                        ec16_dec_iw         1
+                        ec16_dec_oe         1
+                        ec16_dec_pf         1
+                        ec16_dec_pi         1
+                       ec16_dec_rti         1
+                        ec16_dec_se         1
+                       ec16_dec_spf         1
+                        ec16_decode         1
+                      ec16_intcoord         1
+                        ec16_intctl         1
+                       ec16_intflag         1
+                    ec16_intflag_U0         1
+                    ec16_intflag_U1         1
+                    ec16_intflag_U2         1
+                        ec16_intinj         1
+                        ec16_intmem         1
+                            ec16_mc         1
+                            ec16_pc         1
+                            ec16_sc         1
+                            ec16_sf         1
+                            ec16_sp         1
+          fart(clockspeed=20000000)         1
+fart_receiver(clockspeed=20000000,rx_nstages=2)         1
+fart_transmitter(clockspeed=20000000,tx_nstages=2)         1
+                  icy40_dipsw_7segm         1
+                  icy40_ebr_i(1,31)         1
+                          icy40_led         1
+                        icy40_lsosc         1
+                        icy40_reset         1
+                      icy40_sp16k16         1
+                          pll_25_20         1
+pll_25_20_ipgen_lscc_pll(DIVF="50",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="25.000000")         1
+             ripple_fifo(nstages=2)         1
+          ripple_fifo(nstages=2)_U6         1
+        ripple_fifo_slice(dwidth=8)         1
+     ripple_fifo_slice(dwidth=8)_U3         1
+     ripple_fifo_slice(dwidth=8)_U4         1
+     ripple_fifo_slice(dwidth=8)_U5         1
+   rx_baudtick(clockspeed=20000000)         1
+        rx_fsm(clockspeed=20000000)         1
+   tx_baudtick(clockspeed=20000000)         1
+        tx_fsm(clockspeed=20000000)         1
+                              TOTAL      1128
+----------------------------------------------------------------------
+Report for cell icy40_led.v1
+Instance Path : led_port
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              IOL_B         5           71.4
+                              TOTAL         5
+----------------------------------------------------------------------
+Report for cell icy40_reset.v1
+Instance Path : reset_generator
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         4            1.6
+                               LUT4         1            0.1
+                              TOTAL         5
+----------------------------------------------------------------------
+Report for cell fart(clockspeed=20000000).v1
+Instance Path : icy40_fart
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        10           26.3
+                            FD1P3XZ       102           39.7
+                               LUT4        65            8.7
+SUB MODULES
+fart_receiver(clockspeed=20000000,rx_nstages=2)         1
+fart_transmitter(clockspeed=20000000,tx_nstages=2)         1
+             ripple_fifo(nstages=2)         1
+          ripple_fifo(nstages=2)_U6         1
+        ripple_fifo_slice(dwidth=8)         1
+     ripple_fifo_slice(dwidth=8)_U3         1
+     ripple_fifo_slice(dwidth=8)_U4         1
+     ripple_fifo_slice(dwidth=8)_U5         1
+   rx_baudtick(clockspeed=20000000)         1
+        rx_fsm(clockspeed=20000000)         1
+   tx_baudtick(clockspeed=20000000)         1
+        tx_fsm(clockspeed=20000000)         1
+                              TOTAL       189
+----------------------------------------------------------------------
+Report for cell fart_transmitter(clockspeed=20000000,tx_nstages=2).v1
+Instance Path : icy40_fart.c_fart_transmitter
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         5           13.2
+                            FD1P3XZ        47           18.3
+                               LUT4        33            4.4
+SUB MODULES
+             ripple_fifo(nstages=2)         1
+        ripple_fifo_slice(dwidth=8)         1
+     ripple_fifo_slice(dwidth=8)_U3         1
+   tx_baudtick(clockspeed=20000000)         1
+        tx_fsm(clockspeed=20000000)         1
+                              TOTAL        90
+----------------------------------------------------------------------
+Report for cell ripple_fifo(nstages=2).v1
+Instance Path : icy40_fart.c_fart_transmitter.c_tx_rfifo
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ        18            7.0
+                               LUT4         5            0.7
+SUB MODULES
+        ripple_fifo_slice(dwidth=8)         1
+     ripple_fifo_slice(dwidth=8)_U3         1
+                              TOTAL        25
+----------------------------------------------------------------------
+Report for cell ripple_fifo_slice(dwidth=8).v1
+Instance Path : icy40_fart.c_fart_transmitter.c_tx_rfifo.fifo_stage[2].ffsl
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         9            3.5
+                               LUT4         2            0.3
+                              TOTAL        11
+----------------------------------------------------------------------
+Report for cell ripple_fifo_slice(dwidth=8)_U3.v1
+Instance Path : icy40_fart.c_fart_transmitter.c_tx_rfifo.fifo_stage[1].ffsl
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         9            3.5
+                               LUT4         3            0.4
+                              TOTAL        12
+----------------------------------------------------------------------
+Report for cell tx_fsm(clockspeed=20000000).v1
+Instance Path : icy40_fart.c_fart_transmitter.c_tx_fsm
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         5           13.2
+                            FD1P3XZ        23            8.9
+                               LUT4        27            3.6
+SUB MODULES
+   tx_baudtick(clockspeed=20000000)         1
+                              TOTAL        56
+----------------------------------------------------------------------
+Report for cell tx_baudtick(clockspeed=20000000).v1
+Instance Path : icy40_fart.c_fart_transmitter.c_tx_fsm.c_tx_baudtick
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         5           13.2
+                            FD1P3XZ         9            3.5
+                               LUT4        12            1.6
+                              TOTAL        26
+----------------------------------------------------------------------
+Report for cell fart_receiver(clockspeed=20000000,rx_nstages=2).v1
+Instance Path : icy40_fart.c_fart_receiver
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         5           13.2
+                            FD1P3XZ        47           18.3
+                               LUT4        28            3.7
+SUB MODULES
+          ripple_fifo(nstages=2)_U6         1
+     ripple_fifo_slice(dwidth=8)_U4         1
+     ripple_fifo_slice(dwidth=8)_U5         1
+   rx_baudtick(clockspeed=20000000)         1
+        rx_fsm(clockspeed=20000000)         1
+                              TOTAL        85
+----------------------------------------------------------------------
+Report for cell ripple_fifo(nstages=2)_U6.v1
+Instance Path : icy40_fart.c_fart_receiver.c_rx_rfifo
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ        18            7.0
+                               LUT4         4            0.5
+SUB MODULES
+     ripple_fifo_slice(dwidth=8)_U4         1
+     ripple_fifo_slice(dwidth=8)_U5         1
+                              TOTAL        24
+----------------------------------------------------------------------
+Report for cell ripple_fifo_slice(dwidth=8)_U4.v1
+Instance Path : icy40_fart.c_fart_receiver.c_rx_rfifo.fifo_stage[2].ffsl
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         9            3.5
+                               LUT4         2            0.3
+                              TOTAL        11
+----------------------------------------------------------------------
+Report for cell ripple_fifo_slice(dwidth=8)_U5.v1
+Instance Path : icy40_fart.c_fart_receiver.c_rx_rfifo.fifo_stage[1].ffsl
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         9            3.5
+                               LUT4         2            0.3
+                              TOTAL        11
+----------------------------------------------------------------------
+Report for cell rx_fsm(clockspeed=20000000).v1
+Instance Path : icy40_fart.c_fart_receiver.c_rx_fsm
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         5           13.2
+                            FD1P3XZ        23            8.9
+                               LUT4        22            2.9
+SUB MODULES
+   rx_baudtick(clockspeed=20000000)         1
+                              TOTAL        51
+----------------------------------------------------------------------
+Report for cell rx_baudtick(clockspeed=20000000).v1
+Instance Path : icy40_fart.c_fart_receiver.c_rx_fsm.c_rx_baudtick
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         5           13.2
+                            FD1P3XZ         9            3.5
+                               LUT4        15            2.0
+                              TOTAL        29
+----------------------------------------------------------------------
+Report for cell pll_25_20.v1
+Instance Path : pll20
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              PLL_B         1          100.0
+SUB MODULES
+pll_25_20_ipgen_lscc_pll(DIVF="50",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="25.000000")         1
+                              TOTAL         2
+----------------------------------------------------------------------
+Report for cell pll_25_20_ipgen_lscc_pll(DIVF="50",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="25.000000").v1
+Instance Path : pll20.lscc_pll_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              PLL_B         1          100.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell ec16.v1
+Instance Path : up
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1           33.3
+                                FA2        28           73.7
+                            FD1P3XZ        93           36.2
+                               LUT4       547           73.1
+SUB MODULES
+                           ec16_alu         1
+                        ec16_dec_ae         1
+                        ec16_dec_ai         1
+                        ec16_dec_ce         1
+                        ec16_dec_ea         1
+                        ec16_dec_er         1
+                        ec16_dec_ew         1
+                        ec16_dec_ia         1
+                       ec16_dec_iee         1
+                        ec16_dec_ir         1
+                        ec16_dec_iw         1
+                        ec16_dec_oe         1
+                        ec16_dec_pf         1
+                        ec16_dec_pi         1
+                       ec16_dec_rti         1
+                        ec16_dec_se         1
+                       ec16_dec_spf         1
+                      ec16_intcoord         1
+                        ec16_intctl         1
+                       ec16_intflag         1
+                    ec16_intflag_U0         1
+                    ec16_intflag_U1         1
+                    ec16_intflag_U2         1
+                        ec16_intinj         1
+                        ec16_intmem         1
+                            ec16_mc         1
+                            ec16_pc         1
+                            ec16_sc         1
+                            ec16_sf         1
+                            ec16_sp         1
+                              TOTAL       699
+----------------------------------------------------------------------
+Report for cell ec16_sf.v1
+Instance Path : up.status
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         5            1.9
+                               LUT4         7            0.9
+                              TOTAL        12
+----------------------------------------------------------------------
+Report for cell ec16_sp.v1
+Instance Path : up.stackpointer
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        10           26.3
+                            FD1P3XZ         8            3.1
+                               LUT4        23            3.1
+                              TOTAL        41
+----------------------------------------------------------------------
+Report for cell ec16_sc.v1
+Instance Path : up.sc
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         4            1.6
+                               LUT4        13            1.7
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ec16_pc.v1
+Instance Path : up.pc
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         9           23.7
+                            FD1P3XZ        16            6.2
+                               LUT4        45            6.0
+                              TOTAL        70
+----------------------------------------------------------------------
+Report for cell ec16_mc.v1
+Instance Path : up.mc
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        82           11.0
+SUB MODULES
+                        ec16_dec_ae         1
+                        ec16_dec_ai         1
+                        ec16_dec_ce         1
+                        ec16_dec_ea         1
+                        ec16_dec_er         1
+                        ec16_dec_ew         1
+                        ec16_dec_ia         1
+                       ec16_dec_iee         1
+                        ec16_dec_ir         1
+                        ec16_dec_iw         1
+                        ec16_dec_oe         1
+                        ec16_dec_pf         1
+                        ec16_dec_pi         1
+                       ec16_dec_rti         1
+                        ec16_dec_se         1
+                       ec16_dec_spf         1
+                              TOTAL        98
+----------------------------------------------------------------------
+Report for cell ec16_dec_spf.v1
+Instance Path : up.mc.inst_dec_spf
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         5            0.7
+                              TOTAL         5
+----------------------------------------------------------------------
+Report for cell ec16_dec_se.v1
+Instance Path : up.mc.inst_dec_se
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         1            0.1
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell ec16_dec_rti.v1
+Instance Path : up.mc.inst_dec_rti
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         1            0.1
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell ec16_dec_pi.v1
+Instance Path : up.mc.inst_dec_pi
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         2            0.3
+                              TOTAL         2
+----------------------------------------------------------------------
+Report for cell ec16_dec_pf.v1
+Instance Path : up.mc.inst_dec_pf
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        14            1.9
+                              TOTAL        14
+----------------------------------------------------------------------
+Report for cell ec16_dec_oe.v1
+Instance Path : up.mc.inst_dec_oe
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         2            0.3
+                              TOTAL         2
+----------------------------------------------------------------------
+Report for cell ec16_dec_iw.v1
+Instance Path : up.mc.inst_dec_iw
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         3            0.4
+                              TOTAL         3
+----------------------------------------------------------------------
+Report for cell ec16_dec_ir.v1
+Instance Path : up.mc.inst_dec_ir
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         2            0.3
+                              TOTAL         2
+----------------------------------------------------------------------
+Report for cell ec16_dec_iee.v1
+Instance Path : up.mc.inst_dec_iee
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         1            0.1
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell ec16_dec_ia.v1
+Instance Path : up.mc.inst_dec_ia
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         9            1.2
+                              TOTAL         9
+----------------------------------------------------------------------
+Report for cell ec16_dec_ew.v1
+Instance Path : up.mc.inst_dec_ew
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         5            0.7
+                              TOTAL         5
+----------------------------------------------------------------------
+Report for cell ec16_dec_er.v1
+Instance Path : up.mc.inst_dec_er
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         4            0.5
+                              TOTAL         4
+----------------------------------------------------------------------
+Report for cell ec16_dec_ea.v1
+Instance Path : up.mc.inst_dec_ea
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         5            0.7
+                              TOTAL         5
+----------------------------------------------------------------------
+Report for cell ec16_dec_ce.v1
+Instance Path : up.mc.inst_dec_ce
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         1            0.1
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell ec16_dec_ai.v1
+Instance Path : up.mc.inst_dec_ai
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        19            2.5
+                              TOTAL        19
+----------------------------------------------------------------------
+Report for cell ec16_dec_ae.v1
+Instance Path : up.mc.inst_dec_ae
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         8            1.1
+                              TOTAL         8
+----------------------------------------------------------------------
+Report for cell ec16_intmem.v1
+Instance Path : up.intmemory
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1           33.3
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell ec16_intinj.v1
+Instance Path : up.intinj
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         1            0.1
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell ec16_intctl.v1
+Instance Path : up.intctl
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ        28           10.9
+                               LUT4        53            7.1
+SUB MODULES
+                      ec16_intcoord         1
+                       ec16_intflag         1
+                    ec16_intflag_U0         1
+                    ec16_intflag_U1         1
+                    ec16_intflag_U2         1
+                              TOTAL        86
+----------------------------------------------------------------------
+Report for cell ec16_intcoord.v1
+Instance Path : up.intctl.c_intcoord
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ        16            6.2
+                               LUT4        29            3.9
+SUB MODULES
+                       ec16_intflag         1
+                    ec16_intflag_U0         1
+                    ec16_intflag_U1         1
+                    ec16_intflag_U2         1
+                              TOTAL        49
+----------------------------------------------------------------------
+Report for cell ec16_intflag.v1
+Instance Path : up.intctl.c_intcoord.gen03[3].gen3.intflag
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         4            1.6
+                               LUT4         6            0.8
+                              TOTAL        10
+----------------------------------------------------------------------
+Report for cell ec16_intflag_U0.v1
+Instance Path : up.intctl.c_intcoord.gen03[2].gen12.intflag
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         4            1.6
+                               LUT4         7            0.9
+                              TOTAL        11
+----------------------------------------------------------------------
+Report for cell ec16_intflag_U1.v1
+Instance Path : up.intctl.c_intcoord.gen03[1].gen12.intflag
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         4            1.6
+                               LUT4         6            0.8
+                              TOTAL        10
+----------------------------------------------------------------------
+Report for cell ec16_intflag_U2.v1
+Instance Path : up.intctl.c_intcoord.gen03[0].gen0.intflag
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         4            1.6
+                               LUT4        10            1.3
+                              TOTAL        14
+----------------------------------------------------------------------
+Report for cell ec16_alu.v1
+Instance Path : up.alu
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         9           23.7
+                               LUT4       105           14.0
+                              TOTAL       114
+----------------------------------------------------------------------
+Report for cell icy40_dipsw_7segm.v1
+Instance Path : sw_disp
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ        53           20.6
+                              IOL_B         2           28.6
+                               LUT4        41            5.5
+                              TOTAL        96
+----------------------------------------------------------------------
+Report for cell ec16_decode.v1
+Instance Path : glue
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         5            1.9
+                               LUT4        66            8.8
+                              TOTAL        71
+----------------------------------------------------------------------
+Report for cell icy40_ebr_i(1,31).v1
+Instance Path : bootram
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         2           66.7
+                              TOTAL         2
+----------------------------------------------------------------------
+Report for cell icy40_sp16k16.v1
+Instance Path : spram
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              VFB_B         1          100.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell icy40_lsosc.v1
+Instance Path : ls_clk
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                         LSOSC_CORE         1          100.0
+                              TOTAL         1

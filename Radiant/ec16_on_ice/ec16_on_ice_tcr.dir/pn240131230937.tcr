@@ -1,0 +1,7 @@
+#Start recording tcl command: 1/31/2024 23:09:11
+#Project Location: C:/Git/ec16_on_ice/Radiant/ec16_on_ice; Project name: ec16_on_ice
+prj_open "C:/Git/ec16_on_ice/Radiant/ec16_on_ice/ec16_on_ice.rdf"
+prj_add_source "C:/Git/ec16_on_ice/Radiant/ec16_on_ice/Timing.sdc"
+prj_save 
+prj_close
+#Stop recording: 1/31/2024 23:09:37

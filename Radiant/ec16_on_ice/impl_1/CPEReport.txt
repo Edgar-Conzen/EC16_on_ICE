@@ -1,0 +1,7 @@
+###File created by Lattice CPE. Do not modify.###
+create_clock -name {clk} -period 50 [get_nets clk] originating in top was kept as is.
+
+create_clock -name {lsclk} -period 100000 [get_nets lsclk] originating in top was kept as is.
+
+set_clock_groups -group [get_clocks clk] -group [get_clocks lsclk] -asynchronous originating in top was kept as is.
+

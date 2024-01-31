@@ -1,0 +1,644 @@
+                        ;  ECMON
+                        ;
+                        ;
+                        ; Usage of the ECMON
+                        ; ##################
+                        ;
+                        ; The input line buffer can hold up to 44 characters (plus a terminating 0) which is
+                        ; sufficient for the longest possible command: an 8 word write to external memory
+                        ;
+                        ; Example:  
+                        ; >8000=0123 4567 89ab cdef 0123 4567 89ab cdef<CR><LF>
+                        ;  ^------------------------------------------^ 44 characters
+                        ;
+                        ; All numbers must be separated by exactly one other valid character 
+                        ;
+                        ; Valid characters besides 0..9, a..f are:  '.', '=', <SPACE>  and r
+                        ; All letters must be lower case!
+                        ;
+                        ; The input must be finished with <CR><LF> and since no editing is possible,
+                        ; an input line can be cancelled by pressing <ESC> 
+                        ; 
+                        ; All numbers must be in hex and either 2 or 4 digits wide 
+                        ; Leading zeros are mandatory, leading 0Xs are not allowed
+                        ;     To refer to external memory (64 kWords) 4 hex digit addresses must be used
+                        ;     To refer to internal memory (256 words) 2 hex digit addresses  must be used
+                        ;     Data must always be 4 hex digit numbers
+                        ;
+                        ; The range operator '.' is used to define a range of read addresses
+                        ; The assign operator '=' signals a memory write
+                        ; 'r' following a 4 digit external address starts execution from there
+                        ;
+                        ;
+                        ; Examples: (user input lines recognisable by '>')
+                        ; #########################################################################################
+                        ;
+                        ; Read external memory at address 0
+                        ; ---------------------------------
+                        ; >0000<CR><LF>
+                        ;
+                        ; 0000: A000
+                        ; >
+                        ;
+                        ; Read range of external memory beginning at address 1 including address 11
+                        ; -------------------------------------------------------------------------
+                        ; >0001.000b<CR><LF>
+                        ;
+                        ; 0001: a000 0028 0000 0000 0000 0000 0000 0000 8500
+                        ; 000A: 0000 0000
+                        ; >
+                        ;
+                        ; Write up to 8 words to external memory beginning at address 8000
+                        ; (no output, no verify)
+                        ; ------------------------------------------------------------------------------------------------------
+                        ; >8000=1234 5678 9abc<CR><LF>
+                        ; >
+                        ;
+                        ;
+                        ; Start execution at external address 8000
+                        ; ----------------------------------------
+                        ; >8000r<CR><LF>
+                        ;
+                        ; 
+                        ; Read internal memory at address 0
+                        ; ---------------------------------
+                        ; >00<CR><LF>
+                        ;
+                        ; 00: A000
+                        ; >
+                        ;
+                        ; Read range of internal memory beginning at address 1 including address 11
+                        ; -------------------------------------------------------------------------
+                        ; >01.0b<CR><LF>
+                        ;
+                        ; 01: a000 0028 0000 0000 0000 0000 0000 0000 8500
+                        ; 0A: 0000 0000
+                        ; >
+                        ;
+                        ; Write up to 8 words to internal memory beginning at address 60 
+                        ; (no output, no verify)
+                        ; -----------------------------------------------------------------------------------------
+                        ; >60=1234 5678 9abc<CR><LF>
+                        ; >
+                        
+                        
+                        ; Assemble with "python ec16asm.py ecmon.asm"
+                        ; Modify and/or add your SOC-specific addresses in 
+                        ; icy40_def.asm and include it
+                        
+                        ; -> include "icy40_def.asm"
+                        ; define EC16 hardware addresses
+                        
+                        reset			equ 0x0000
+                        irq0			equ 0x0008
+                        irq1			equ 0x0010 
+                        irq2			equ 0x0018
+                        irq3			equ 0x0020
+                        boot_start		equ 0x0028
+                        boot_end		equ 0x01FF
+                        
+                        led_out			equ 0x2000
+                        btn_in			equ 0x2000
+                        
+                        dipsw_in		equ 0x4000
+                        dig_out			equ 0x4000
+                        dp_out			equ	0x4001
+                        
+                        fart_d			equ 0x6000
+                        fart_s			equ 0x6001
+                        fart_tx_free	equ 0x0002
+                        fart_rx_avail	equ 0x0001
+                        
+                        spram_start		equ 0x8000
+                        spram_end		equ 0xBFFF
+                        ; -> end of included file "icy40_def.asm"
+                        
+                        org_i 0x00
+                        
+                        ; ---- constants
+                        backspace		equ 0x08
+                        lf				equ 0x0a
+                        cr				equ 0x0d
+                        esc				equ 0x1b
+                        space			equ 0x20
+                        dash			equ 0x2d
+                        dot				equ 0x2e
+                        colon			equ 0x3a
+                        equal			equ 0x3d
+                        greater			equ 0x3e
+                        caret			equ 0x5e
+                        run				equ 0x72
+                        ; ---- variables and buffers
+                        r0				res_i 1
+                        r1				res_i 1
+                        r2				res_i 1
+                        tx_addr			res_i 1
+                        start_addr		res_i 1
+                        end_addr		res_i 1
+                        dump_lines		res_i 1
+                        dump_rest		res_i 1
+                        dump_numb		res_i 1
+                        read_mem		res_i 1				;function pointer
+                        write_addr		res_i 1
+                        write_mem		res_i 1				;function pointer
+                        
+                        rxb_len			equ 44				;rx buffer length
+                        rxb_start		res_i rxb_len		;rx buffer start address
+                        rxb_end			res_i 0				;label only !
+                        rxb_eol			res_i 1				;45th place for terminating 0
+                        p_lbuf			res_i 1				;pointer to linebuffer
+                        p_str			res_i 1				;pointer to string
+                        
+                        ; ---- pointers to hardware addresses 
+                        p_fart_d		res_i 1	; pointer to farts data port (r&w)
+                        p_fart_s		res_i 1	; pointer to farts status por (r only)
+                        p_dig_out		res_i 1
+                        
+                        
+                        org_e reset
+0x0000  0xA000  0x0028   					jmpd boot_start
+                        
+                        org_e irq0
+0x0008  0x8500          					reti
+                        
+                        org_e irq1
+0x0010  0x8500          					reti
+                        
+                        org_e irq2
+0x0018  0x8500          					reti
+                        
+                        org_e irq3
+0x0020  0x8500          					reti
+                        					
+                        org_e boot_start
+                        
+0x0028  0x613D  0x4000   					movd p_dig_out dig_out
+0x002A  0x6000  0xEC16   					movd a 0xec16
+0x002C  0x823D          					movxi p_dig_out a
+                        
+0x002D  0x6000  0x00FF   ecmon				movd a 0x00ff
+0x002F  0x1300          					mov sp a
+0x0030  0x613B  0x6000   					movd p_fart_d fart_d
+0x0032  0x613C  0x6001   					movd p_fart_s fart_s
+0x0034  0x613A  0x01C8   					movd p_str str_hello1
+0x0036  0xA100  0x007D   					calld print
+0x0038  0x613A  0x01EB   					movd p_str str_hello2
+0x003A  0xA100  0x007D   					calld print
+                        					
+                        
+0x003C  0xA100  0x0048   ecmon_loop			calld getline				;prompt, fill linebuffer until <CR><LF> or <ESC>
+0x003E  0x6139  0x000C   					movd p_lbuf rxb_start		;reset pointer to start of linebuffer
+0x0040  0x8039          					movi a p_lbuf				;test if buffer is empty (ESC or empty line)
+0x0041  0x2F00          					not a						;i.e. first word in buffer = 0
+0x0042  0x2F00          					not a
+0x0043  0xC7F8          					brzs ecmon_loop				;yes -> get another line
+0x0044  0xA100  0x0097   					calld parse					;else parse the line
+0x0046  0xA000  0x003C   					jmpd ecmon_loop				;get next command
+                        
+                        
+0x0048  0x613A  0x01BE   getline				movd p_str str_prompt		;print prompt '>' on next line
+0x004A  0xA100  0x007D   					calld print
+0x004C  0x6139  0x000C   					movd p_lbuf rxb_start		;point to rx linebuffer
+0x004E  0xA100  0x0090   getline_loop		calld rxchar				;get a char from fart
+0x0050  0x6100  0x0008   					movd r0 backspace
+0x0052  0x4400          					cmp a r0
+0x0053  0xC309          					brzc getline_esc
+0x0054  0x6000  0x000C   					movd a rxb_start
+0x0056  0x4439          					cmp a p_lbuf
+0x0057  0xC7F6          					brzs getline_loop
+0x0058  0x4639          					dec p_lbuf
+0x0059  0xA100  0x01AE   					calld print_backspace
+0x005B  0xA000  0x004E   					jmpd getline_loop
+0x005D  0x6100  0x001B   getline_esc			movd r0 esc
+0x005F  0x4400          					cmp a r0
+0x0060  0xC306          					brzc getline_cr				;not ESC -> test for CR
+0x0061  0x6139  0x000C   					movd p_lbuf rxb_start		;ESC -> cancel input
+0x0063  0x6000  0x0000   					movd a 0					;mark end of line with zero in buffer
+0x0065  0x5239          					movi p_lbuf a
+0x0066  0x8400          					rets
+0x0067  0x6100  0x000D   getline_cr			movd r0 cr
+0x0069  0x4400          					cmp a r0
+0x006A  0xC306          					brzc getline_rx				;not CR : char received
+0x006B  0x6000  0x0000   					movd a 0					;mark end of line with zero in buffer
+0x006D  0x5239          					movi p_lbuf a				;write received char to rx buffer
+0x006E  0xA100  0x0090   					calld rxchar				;wait for LF (will not be checked)
+0x0070  0x8400          					rets
+0x0071  0x1500          getline_rx			push a						;save received character
+0x0072  0x6000  0x0038   					movd a rxb_end				;test if rx buffer is full
+0x0074  0x4439          					cmp a p_lbuf				;if full, ignore char and wait for CRLF
+0x0075  0x5100          					pop a
+0x0076  0xC7D7          					brzs getline_loop
+0x0077  0x5239          					movi p_lbuf a				;write received char to rx buffer
+0x0078  0x4739          					inc p_lbuf
+0x0079  0xA100  0x0087   					calld txchar				;and echo it
+0x007B  0xA000  0x004E   					jmpd getline_loop			;continue receiving
+                        
+                        
+0x007D  0x833A          print				movxi a p_str				;fetch character to be tranmitted
+0x007E  0x2F00          					not a						;test for zero terminating the string
+0x007F  0x2F00          					not a
+0x0080  0xC301          					brzc print_1				;non zero -> gets printed
+0x0081  0x8400          					rets						;else end of print
+0x0082  0x473A          print_1				inc p_str					;point to next
+0x0083  0xA100  0x0087   					calld txchar				;
+0x0085  0xA000  0x007D   					jmpd print
+                        
+                        
+0x0087  0x1500          txchar				push a						;Accu contains character to be transfered
+0x0088  0x6100  0x0002   					movd r0 fart_tx_free	
+0x008A  0x833C          txchar_loop			movxi a p_fart_s			;get status
+0x008B  0x4C00          					and a r0					;
+0x008C  0xC7FD          					brzs txchar_loop			;wait for tx_free
+0x008D  0x5100          					pop a						;write character
+0x008E  0x823B          					movxi p_fart_d a
+0x008F  0x8400          					rets
+                        
+                        
+0x0090  0x6100  0x0001   rxchar				movd r0 fart_rx_avail
+0x0092  0x833C          rxchar_loop			movxi a p_fart_s			;get status
+0x0093  0x4C00          					and a r0					;
+0x0094  0xC7FD          					brzs rxchar_loop			;wait for rx_avail
+0x0095  0x833B          					movxi a p_fart_d			;read received character
+0x0096  0x8400          					rets
+                        
+                        
+0x0097  0xA100  0x0143   parse				calld get_byte				;convert first two words of line buffer to byte
+0x0099  0xC42A          					brcs parse_error			;two ASCII hex digits? no -> error
+0x009A  0x1604          					mov start_addr a			;yes -> save byte
+0x009B  0x1605          					mov end_addr a
+0x009C  0x8039          					movi a p_lbuf				;check next word in line buffer
+0x009D  0x6100  0x0000   					movd r0 0					;
+0x009F  0x4400          					cmp a r0					;compare to 0 (end of line)
+0x00A0  0xC73C          					brzs read_int				;yes -> command : read one word of INTMEM
+0x00A1  0x6100  0x002E   					movd r0 dot					;no ->
+0x00A3  0x4400          					cmp a r0					;compare to '.'
+0x00A4  0xC733          					brzs read_int_range			;yes -> command : read range of INTMEM
+0x00A5  0x6100  0x003D   					movd r0 equal				;no ->
+0x00A7  0x4400          					cmp a r0					;compare to '='
+0x00A8  0xC775          					brzs write_int_range		;yes -> command : write range of INTMEM
+                        					
+0x00A9  0xA100  0x0143   					calld get_byte				;no -> must be 16-bit value, get next byte
+0x00AB  0xC418          					brcs parse_error			;two ASCII hex digits? no -> error
+0x00AC  0x1600          					mov r0 a					;yes -> save it
+0x00AD  0x5004          					mov a start_addr			;shift future highbyte 8 bits to the left
+0x00AE  0xA100  0x019A   					calld shl_8					;
+0x00B0  0x4300          					add a r0					;add second byte to form a word
+0x00B1  0x1604          					mov start_addr a			;save word
+0x00B2  0x1605          					mov end_addr a
+0x00B3  0x8039          					movi a p_lbuf				;check next word in line buffer
+0x00B4  0x6100  0x0000   					movd r0 0					;
+0x00B6  0x4400          					cmp a r0					;compare to 0 (end of line)
+0x00B7  0xC730          					brzs read_ext				;yes -> command : read one word of EXTMEM
+0x00B8  0x6100  0x002E   					movd r0 dot					;no ->
+0x00BA  0x4400          					cmp a r0					;compare to '.'
+0x00BB  0xC727          					brzs read_ext_range			;yes -> command : read range of EXTMEM
+0x00BC  0x6100  0x003D   					movd r0 equal				;no ->
+0x00BE  0x4400          					cmp a r0					;compare to '='
+0x00BF  0xC762          					brzs write_ext_range		;yes -> command : write range of EXTMEM
+0x00C0  0x6100  0x0072   					movd r0 run					;no ->
+0x00C2  0x4400          					cmp a r0					;compare to 'r'
+0x00C3  0xC773          					brzs run_from_address		;yes -> command : run
+                        					
+0x00C4  0x5039          parse_error			mov a p_lbuf				;mark error location
+0x00C5  0x6101  0x000C   					movd r1 rxb_start			;calculate number of dashes
+0x00C7  0x4201          					sub a r1					;
+0x00C8  0x1601          					mov r1 a					;
+0x00C9  0x4701          					inc r1						;compensate prompt
+0x00CA  0xA100  0x01B2   					calld print_crlf
+0x00CC  0x6000  0x002D   					movd a dash					;print line of dashes
+0x00CE  0xA100  0x0087   parse_errorline		calld txchar				;
+0x00D0  0x4601          					dec r1						;
+0x00D1  0xC3FC          					brzc parse_errorline		;
+0x00D2  0x6000  0x005E   					movd a caret				; print '^' beneath error
+0x00D4  0xA100  0x0087   					calld txchar
+0x00D6  0x1100          					set c						;error flag
+0x00D7  0x8400          					rets
+                        					
+                        
+0x00D8  0x4739          read_int_range		inc p_lbuf					;skip dot
+0x00D9  0xA100  0x0143   					calld get_byte				;get last INTMEM address
+0x00DB  0xC4E8          					brcs parse_error			;
+0x00DC  0x1605          					mov end_addr a				;
+0x00DD  0x6103  0x017C   read_int			movd tx_addr tx_byte		;pointer to output 8-bit INTMEM addresses as values
+0x00DF  0x6109  0x011A   					movd read_mem read_int_mem	;pointer to read from INTMEM
+0x00E1  0xA000  0x00EC   					jmpd calc_lines
+                        					
+0x00E3  0x4739          read_ext_range		inc p_lbuf					;skip dot
+0x00E4  0xA100  0x0138   					calld get_word				;get last EXTMEM address
+0x00E6  0xC4DD          					brcs parse_error			;
+0x00E7  0x1605          					mov end_addr a				;
+0x00E8  0x6103  0x016A   read_ext			movd tx_addr tx_word		;pointer to output 16-bit EXTMEM addresses
+0x00EA  0x6109  0x011C   					movd read_mem read_ext_mem	;pointer read from EXTMEM
+                        
+0x00EC  0x5005          calc_lines			mov a end_addr				;calculate the number of words
+0x00ED  0x4204          					sub a start_addr			;to be dumped
+0x00EE  0x1607          					mov dump_rest a				;result is too low by one
+0x00EF  0x4707          					inc dump_rest				;correct it
+0x00F0  0x5007          					mov a dump_rest				;full lines have 8 words
+0x00F1  0xA100  0x01A6   					calld shr_3					;calculate them
+0x00F3  0x1606          					mov dump_lines a			;
+0x00F4  0x6000  0x0007   					movd a 0b111				;last (or only) line
+0x00F6  0x4C07          					and a dump_rest				;must have 0..7 words 
+0x00F7  0x1607          					mov dump_rest a
+                        
+0x00F8  0x6000  0x0000   dump_loop			movd a 0					;test if full lines have to be dumped
+0x00FA  0x4406          					cmp a dump_lines			;
+0x00FB  0xC706          					brzs dump_the_rest			;no -> dump rest
+0x00FC  0x6108  0x0008   dump_full_lines		movd dump_numb 8			;yes -> dump 8 words
+0x00FE  0xA100  0x010B   					calld dump_line				;
+0x0100  0x4606          					dec dump_lines				;more full lines?
+0x0101  0xC3FA          					brzc dump_full_lines		;yes -> repeat
+0x0102  0x6000  0x0000   dump_the_rest		movd a 0					;test if a rest has to be dumped
+0x0104  0x4407          					cmp a dump_rest				;
+0x0105  0xC704          					brzs dump_end				;no -> ready, return to prompt
+0x0106  0x5007          					mov a dump_rest				;yes -> get the number of words
+0x0107  0x1608          					mov dump_numb a				;
+0x0108  0xA100  0x010B   					calld dump_line				;ready, return to prompt
+0x010A  0x8400          dump_end			rets
+                        					
+0x010B  0xA100  0x01B2   dump_line			calld print_crlf			;cursor to next line
+0x010D  0x5004          					mov a start_addr			;print the current int/extmem address
+                        
+0x010E  0xA303          					calli tx_addr				;in its respective format
+0x010F  0xA100  0x01B6   					calld print_colspace		;print colon and space
+0x0111  0xA309          dump_next			calli read_mem				;read word at current int/extmem address
+0x0112  0xA100  0x016A   					calld tx_word				;print value as four digit hex
+0x0114  0xA100  0x01AA   					calld print_space			;print seperator
+0x0116  0x4704          					inc start_addr				;next address
+0x0117  0x4608          					dec dump_numb				;
+0x0118  0xC3F8          					brzc dump_next
+0x0119  0x8400          					rets					
+                        
+0x011A  0x8004          read_int_mem		movi a start_addr			;called via function pointer read_mem
+0x011B  0x8400          					rets
+                        
+0x011C  0x8304          read_ext_mem		movxi a start_addr			;called via function pointer read_mem
+0x011D  0x8400          					rets
+                        
+                        
+0x011E  0x610B  0x0133   write_int_range		movd write_mem write_intmem
+0x0120  0xA000  0x0124   					jmpd write_range
+                        
+0x0122  0x610B  0x0135   write_ext_range		movd write_mem write_extmem
+                        
+0x0124  0x5004          write_range			mov a start_addr			;set write_addr to start_addr
+0x0125  0x160A          					mov write_addr a
+0x0126  0x4739          					inc p_lbuf					;skip equal sign
+0x0127  0xA100  0x0138   write_next			calld get_word				;get 16-bit data word to write to INT/EXTMEM
+0x0129  0xC49A          					brcs parse_error			;there must at least be one word to be written, else error
+0x012A  0xA30B          					calli write_mem				;write word to current int/extmem address
+0x012B  0x470A          					inc write_addr				;point to next address
+0x012C  0x8039          					movi a p_lbuf				;look for end of line 
+0x012D  0x4739          					inc p_lbuf					;
+0x012E  0x6100  0x0000   					movd r0 0					;
+0x0130  0x4400          					cmp a r0					;
+0x0131  0xC3F5          					brzc write_next				;
+0x0132  0x8400          					rets
+                        
+0x0133  0x520A          write_intmem		movi write_addr a 			;called via function pointer read_mem
+0x0134  0x8400          					rets
+                        
+0x0135  0x820A          write_extmem		movxi write_addr a			;called via function pointer read_mem
+0x0136  0x8400          					rets
+                        
+                        
+0x0137  0xA204          run_from_address	jmpi start_addr
+                        
+                        
+                        					;return error in Carry and value in Accu
+0x0138  0xA100  0x0143   get_word			calld get_byte
+0x013A  0xC417          					brcs get_byte_end			;not '0'..'f' -> error
+0x013B  0xA100  0x019A   					calld shl_8
+0x013D  0x1602          					mov r2 a
+0x013E  0xA100  0x0143   					calld get_byte
+0x0140  0xC411          					brcs get_byte_end			;not '0'..'f' -> error
+0x0141  0x4302          					add a r2
+0x0142  0x8400          					rets
+                        					
+                        					;return error in Carry and value in Accu
+0x0143  0x8039          get_byte			movi a p_lbuf				;p_lbuf must point to first hex digit
+0x0144  0xA100  0x0153   					calld asc2nibble			;convert it to nibble
+0x0146  0xC40B          					brcs get_byte_end			;not '0'..'f' -> error
+0x0147  0xA100  0x019C   					calld shl_4					;else shift nibble 4 bits to the left
+0x0149  0x1601          					mov r1 a					;and save it
+0x014A  0x4739          					inc p_lbuf					;next hex digit
+0x014B  0x8039          					movi a p_lbuf				;
+0x014C  0xA100  0x0153   					calld asc2nibble			;must also be '0'..'f'
+0x014E  0xC403          					brcs get_byte_end			;if not -> error
+0x014F  0x4301          					add a r1					;else combine both nibbles to byte
+0x0150  0x4739          					inc p_lbuf					;point to next element in line buffer
+0x0151  0x1000          					clr c						;flag no error
+0x0152  0x8400          get_byte_end		rets						;return error in Carry and value in Accu
+                        					
+0x0153  0x6100  0x0030   asc2nibble			movd r0 0x30				;ASCII 0x30..0x39 => 0..9
+0x0155  0x4200          					sub a r0					;less than 0x30 ?
+0x0156  0xC60C          					brns a2n_err				;yes => error
+0x0157  0x6100  0x000A   					movd r0 0x0a				;less than 0x3a ? 
+0x0159  0x4400          					cmp a r0					;
+0x015A  0xC60D          					brns a2n_ok					;yes => ready
+0x015B  0x6100  0x0031   					movd r0 0x31				;ASCII 0x61..0x66 (a-f) => 0..5
+0x015D  0x4200          					sub a r0					;less than 0x61 ?
+0x015E  0xC604          					brns a2n_err				; => error
+0x015F  0x6100  0x0006   					movd r0 0x06				;less than 0x67 ? 
+0x0161  0x4400          					cmp a r0					;
+0x0162  0xC602          					brns a2n_af					;yes => ok
+0x0163  0x1100          a2n_err				set c
+0x0164  0x8400          					rets
+0x0165  0x6100  0x000A   a2n_af				movd r0	0x0a				;0..5 => a..f
+0x0167  0x4300          					add a r0					
+0x0168  0x1000          a2n_ok				clr c
+0x0169  0x8400          					rets
+                        
+                        
+0x016A  0x1602          tx_word				mov r2 a
+0x016B  0xA100  0x01A1   					calld shr_12
+0x016D  0xA100  0x018D   					calld nibble2asc
+0x016F  0xA100  0x0087   					calld txchar
+0x0171  0x5002          					mov a r2
+0x0172  0xA100  0x01A3   					calld shr_8
+0x0174  0x6101  0x000F   					movd r1 0x000f
+0x0176  0x4C01          					and a r1
+0x0177  0xA100  0x018D   					calld nibble2asc
+0x0179  0xA100  0x0087   					calld txchar
+0x017B  0x5002          					mov a r2
+0x017C  0x1602          tx_byte				mov r2 a
+0x017D  0xA100  0x01A5   					calld shr_4
+0x017F  0x6101  0x000F   					movd r1 0x000f
+0x0181  0x4C01          					and a r1
+0x0182  0xA100  0x018D   					calld nibble2asc
+0x0184  0xA100  0x0087   					calld txchar
+0x0186  0x5002          					mov a r2
+0x0187  0x4C01          					and a r1
+0x0188  0xA100  0x018D   					calld nibble2asc
+0x018A  0xA100  0x0087   					calld txchar
+0x018C  0x8400          					rets
+                        					
+0x018D  0x6100  0x0030   nibble2asc			movd r0 0x30
+0x018F  0x4300          					add a r0
+0x0190  0x6100  0x003A   					movd r0 0x3a
+0x0192  0x4400          					cmp a r0
+0x0193  0xC603          					brns n2a_end
+0x0194  0x6100  0x0027   					movd r0 0x27
+0x0196  0x4300          					add a r0
+0x0197  0x8400          n2a_end				rets
+                        
+                        
+0x0198  0xA100  0x019C   shl_12				calld shl_4
+0x019A  0xA100  0x019C   shl_8				calld shl_4
+0x019C  0x2A00          shl_4				shl a
+0x019D  0x2A00          					shl a
+0x019E  0x2A00          					shl a
+0x019F  0x2A00          					shl a
+0x01A0  0x8400          					rets
+                        
+                        
+0x01A1  0xA100  0x01A5   shr_12				calld shr_4
+0x01A3  0xA100  0x01A5   shr_8				calld shr_4
+0x01A5  0x2B00          shr_4				shr a
+0x01A6  0x2B00          shr_3				shr a
+0x01A7  0x2B00          					shr a
+0x01A8  0x2B00          					shr a
+0x01A9  0x8400          					rets
+                        
+                        
+0x01AA  0x6000  0x0020   print_space			movd a space
+0x01AC  0xA000  0x0087   					jmpd txchar					;implicit rets
+                        
+0x01AE  0x613A  0x01BA   print_backspace		movd p_str str_backspace
+0x01B0  0xA000  0x007D   					jmpd print
+                        
+0x01B2  0x613A  0x01C2   print_crlf			movd p_str str_crlf
+0x01B4  0xA000  0x007D   					jmpd print					;implicit rets
+                        				
+0x01B6  0x613A  0x01C5   print_colspace		movd p_str str_colspace
+0x01B8  0xA000  0x007D   					jmpd print					;implicit rets
+                        					
+0x01BA  0x0008  0x0020  0x0008  0x0000 | str_backspace	dw_e backspace space backspace 0
+0x01BE  0x000D  0x000A  0x003E  0x0000 | str_prompt		dw_e cr lf greater 0
+0x01C2  0x000D  0x000A  0x0000 | str_crlf		dw_e cr lf 0
+0x01C5  0x003A  0x0020  0x0000 | str_colspace	dw_e colon space 0
+0x01C8  0x000D  0x000A  0x0045  0x0043  0x0031  0x0036  0x0020  0x0043  0x0050  0x0055  0x0020  0x006F  0x006E  0x0020  0x0049  0x0043  0x0045  0x0034  0x0030  0x0055  0x0050  0x0035  0x004B  0x0020  0x0040  0x0020  0x0032  0x0030  0x0020  0x004D  0x0048  0x007A  0x000D  0x000A  0x0000 | str_hello1		dw_e cr lf "EC16 CPU on ICE40UP5K @ 20 MHz" cr lf 0
+0x01EB  0x0031  0x0036  0x006B  0x0057  0x0020  0x0052  0x0041  0x004D  0x0020  0x0038  0x0030  0x0030  0x0030  0x002D  0x0042  0x0046  0x0046  0x0046  0x0000 | str_hello2		dw_e "16kW RAM 8000-BFFF" 0
+                        
+                        
+0x01FE  0x0000          last				nop
+
+
+List of labels
+
+Line 92  reset 0
+Line 93  irq0 8
+Line 94  irq1 16
+Line 95  irq2 24
+Line 96  irq3 32
+Line 97  boot_start 40
+Line 98  boot_end 511
+Line 100  led_out 8192
+Line 101  btn_in 8192
+Line 103  dipsw_in 16384
+Line 104  dig_out 16384
+Line 105  dp_out 16385
+Line 107  fart_d 24576
+Line 108  fart_s 24577
+Line 109  fart_tx_free 2
+Line 110  fart_rx_avail 1
+Line 112  spram_start 32768
+Line 113  spram_end 49151
+Line 119  backspace 8
+Line 120  lf 10
+Line 121  cr 13
+Line 122  esc 27
+Line 123  space 32
+Line 124  dash 45
+Line 125  dot 46
+Line 126  colon 58
+Line 127  equal 61
+Line 128  greater 62
+Line 129  caret 94
+Line 130  run 114
+Line 132  r0 0
+Line 133  r1 1
+Line 134  r2 2
+Line 135  tx_addr 3
+Line 136  start_addr 4
+Line 137  end_addr 5
+Line 138  dump_lines 6
+Line 139  dump_rest 7
+Line 140  dump_numb 8
+Line 141  read_mem 9
+Line 142  write_addr 10
+Line 143  write_mem 11
+Line 145  rxb_len 44
+Line 146  rxb_start 12
+Line 147  rxb_end 56
+Line 148  rxb_eol 56
+Line 149  p_lbuf 57
+Line 150  p_str 58
+Line 153  p_fart_d 59
+Line 154  p_fart_s 60
+Line 155  p_dig_out 61
+Line 179  ecmon 45
+Line 189  ecmon_loop 60
+Line 199  getline 72
+Line 202  getline_loop 78
+Line 212  getline_esc 93
+Line 219  getline_cr 103
+Line 226  getline_rx 113
+Line 237  print 125
+Line 242  print_1 130
+Line 247  txchar 135
+Line 249  txchar_loop 138
+Line 257  rxchar 144
+Line 258  rxchar_loop 146
+Line 265  parse 151
+Line 302  parse_error 196
+Line 309  parse_errorline 206
+Line 318  read_int_range 216
+Line 322  read_int 221
+Line 326  read_ext_range 227
+Line 330  read_ext 232
+Line 333  calc_lines 236
+Line 344  dump_loop 248
+Line 347  dump_full_lines 252
+Line 351  dump_the_rest 258
+Line 357  dump_end 266
+Line 359  dump_line 267
+Line 364  dump_next 273
+Line 372  read_int_mem 282
+Line 375  read_ext_mem 284
+Line 379  write_int_range 286
+Line 382  write_ext_range 290
+Line 384  write_range 292
+Line 387  write_next 295
+Line 398  write_intmem 307
+Line 401  write_extmem 309
+Line 405  run_from_address 311
+Line 409  get_word 312
+Line 419  get_byte 323
+Line 431  get_byte_end 338
+Line 433  asc2nibble 339
+Line 445  a2n_err 355
+Line 447  a2n_af 357
+Line 449  a2n_ok 360
+Line 453  tx_word 362
+Line 464  tx_byte 380
+Line 476  nibble2asc 397
+Line 483  n2a_end 407
+Line 486  shl_12 408
+Line 487  shl_8 410
+Line 488  shl_4 412
+Line 495  shr_12 417
+Line 496  shr_8 419
+Line 497  shr_4 421
+Line 498  shr_3 422
+Line 504  print_space 426
+Line 507  print_backspace 430
+Line 510  print_crlf 434
+Line 513  print_colspace 438
+Line 516  str_backspace 442
+Line 517  str_prompt 446
+Line 518  str_crlf 450
+Line 519  str_colspace 453
+Line 520  str_hello1 456
+Line 521  str_hello2 491
+Line 524  last 510

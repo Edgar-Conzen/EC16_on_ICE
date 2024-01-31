@@ -1,0 +1,515 @@
+
+map -i "ec16_on_ice_impl_1_syn.udb" -pdc "C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc" -o "ec16_on_ice_impl_1_map.udb" -mp "ec16_on_ice_impl_1.mrp" -hierrpt     
+map:  version Radiant Software (64-bit) 2023.1.1.200.1
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
+
+Command line:   map -i ec16_on_ice_impl_1_syn.udb -pdc C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc -o ec16_on_ice_impl_1_map.udb -mp ec16_on_ice_impl_1.mrp -hierrpt -gui 
+
+Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/2023.1/ispfpga.
+Package Status:                     Preliminary    Version 1.5.
+
+
+
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (6) : No port matched &apos;FTDI_CTS&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (7) : No port matched &apos;FTDI_RTS&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (10) : No port matched &apos;FPGA_DO&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (11) : No port matched &apos;FPGA_SCK&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (12) : No port matched &apos;FPGA_SS&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (13) : No port matched &apos;FPGA_DI&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (14) : No port matched &apos;DBG_CS&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (15) : No port matched &apos;DBG_DI&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (16) : No port matched &apos;DBG_SCK&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (17) : No port matched &apos;DBG_DO&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (29) : No port matched &apos;PMOD_IO8&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (30) : No port matched &apos;RGB_RD&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (31) : No port matched &apos;RGB_GN&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (32) : No port matched &apos;RGB_BL&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (33) : No port matched &apos;PMOD_IO4&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (34) : No port matched &apos;PMOD_IO7&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (35) : No port matched &apos;PMOD_IO3&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (36) : No port matched &apos;PMOD_IO6&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (37) : No port matched &apos;PMOD_IO2&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (38) : No port matched &apos;PMOD_IO5&apos;.
+WARNING <1026001> - C:/Git/ec16_on_ice/source/icy40_source/icy40.pdc (39) : No port matched &apos;PMOD_IO1&apos;.
+WARNING <1027013> - No port matched 'FTDI_CTS'.
+WARNING <1014301> - Can't resolve object 'FTDI_CTS' in constraint 'ldc_set_location -site {10} [get_ports FTDI_CTS]'.
+WARNING <1027013> - No port matched 'FTDI_RTS'.
+WARNING <1014301> - Can't resolve object 'FTDI_RTS' in constraint 'ldc_set_location -site {11} [get_ports FTDI_RTS]'.
+WARNING <1027013> - No port matched 'FPGA_DO'.
+WARNING <1014301> - Can't resolve object 'FPGA_DO' in constraint 'ldc_set_location -site {14} [get_ports FPGA_DO]'.
+WARNING <1027013> - No port matched 'FPGA_SCK'.
+WARNING <1014301> - Can't resolve object 'FPGA_SCK' in constraint 'ldc_set_location -site {15} [get_ports FPGA_SCK]'.
+WARNING <1027013> - No port matched 'FPGA_SS'.
+WARNING <1014301> - Can't resolve object 'FPGA_SS' in constraint 'ldc_set_location -site {16} [get_ports FPGA_SS]'.
+WARNING <1027013> - No port matched 'FPGA_DI'.
+WARNING <1014301> - Can't resolve object 'FPGA_DI' in constraint 'ldc_set_location -site {17} [get_ports FPGA_DI]'.
+WARNING <1027013> - No port matched 'DBG_CS'.
+WARNING <1014301> - Can't resolve object 'DBG_CS' in constraint 'ldc_set_location -site {18} [get_ports DBG_CS]'.
+WARNING <1027013> - No port matched 'DBG_DI'.
+WARNING <1014301> - Can't resolve object 'DBG_DI' in constraint 'ldc_set_location -site {19} [get_ports DBG_DI]'.
+WARNING <1027013> - No port matched 'DBG_SCK'.
+WARNING <1014301> - Can't resolve object 'DBG_SCK' in constraint 'ldc_set_location -site {20} [get_ports DBG_SCK]'.
+WARNING <1027013> - No port matched 'DBG_DO'.
+WARNING <1014301> - Can't resolve object 'DBG_DO' in constraint 'ldc_set_location -site {21} [get_ports DBG_DO]'.
+WARNING <1027013> - No port matched 'PMOD_IO8'.
+WARNING <1014301> - Can't resolve object 'PMOD_IO8' in constraint 'ldc_set_location -site {38} [get_ports PMOD_IO8]'.
+WARNING <1027013> - No port matched 'RGB_RD'.
+WARNING <1014301> - Can't resolve object 'RGB_RD' in constraint 'ldc_set_location -site {39} [get_ports RGB_RD]'.
+WARNING <1027013> - No port matched 'RGB_GN'.
+WARNING <1014301> - Can't resolve object 'RGB_GN' in constraint 'ldc_set_location -site {40} [get_ports RGB_GN]'.
+WARNING <1027013> - No port matched 'RGB_BL'.
+WARNING <1014301> - Can't resolve object 'RGB_BL' in constraint 'ldc_set_location -site {41} [get_ports RGB_BL]'.
+WARNING <1027013> - No port matched 'PMOD_IO4'.
+WARNING <1014301> - Can't resolve object 'PMOD_IO4' in constraint 'ldc_set_location -site {42} [get_ports PMOD_IO4]'.
+WARNING <1027013> - No port matched 'PMOD_IO7'.
+WARNING <1014301> - Can't resolve object 'PMOD_IO7' in constraint 'ldc_set_location -site {43} [get_ports PMOD_IO7]'.
+WARNING <1027013> - No port matched 'PMOD_IO3'.
+WARNING <1014301> - Can't resolve object 'PMOD_IO3' in constraint 'ldc_set_location -site {44} [get_ports PMOD_IO3]'.
+WARNING <1027013> - No port matched 'PMOD_IO6'.
+WARNING <1014301> - Can't resolve object 'PMOD_IO6' in constraint 'ldc_set_location -site {45} [get_ports PMOD_IO6]'.
+WARNING <1027013> - No port matched 'PMOD_IO2'.
+WARNING <1014301> - Can't resolve object 'PMOD_IO2' in constraint 'ldc_set_location -site {46} [get_ports PMOD_IO2]'.
+WARNING <1027013> - No port matched 'PMOD_IO5'.
+WARNING <1014301> - Can't resolve object 'PMOD_IO5' in constraint 'ldc_set_location -site {47} [get_ports PMOD_IO5]'.
+WARNING <1027013> - No port matched 'PMOD_IO1'.
+WARNING <1014301> - Can't resolve object 'PMOD_IO1' in constraint 'ldc_set_location -site {48} [get_ports PMOD_IO1]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {10} [get_ports FTDI_CTS]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {11} [get_ports FTDI_RTS]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {14} [get_ports FPGA_DO]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {15} [get_ports FPGA_SCK]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {16} [get_ports FPGA_SS]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {17} [get_ports FPGA_DI]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {18} [get_ports DBG_CS]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {19} [get_ports DBG_DI]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {20} [get_ports DBG_SCK]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {21} [get_ports DBG_DO]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {38} [get_ports PMOD_IO8]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {39} [get_ports RGB_RD]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {40} [get_ports RGB_GN]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {41} [get_ports RGB_BL]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {42} [get_ports PMOD_IO4]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {43} [get_ports PMOD_IO7]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {44} [get_ports PMOD_IO3]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {45} [get_ports PMOD_IO6]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {46} [get_ports PMOD_IO2]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {47} [get_ports PMOD_IO5]'.
+WARNING <1011001> - Remove invalid constraint 'ldc_set_location -site {48} [get_ports PMOD_IO1]'.
+   Remove unused logic
+
+   Do not produce over sized UDBs.
+
+Design:  icy40
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:  High-Performance_1.2V
+
+Running general design DRC...
+
+Removing unused logic...
+
+Optimizing...
+
+
+
+
+Design Summary:
+   Number of slice registers: 257 out of  5280 (5%)
+   Number of I/O registers:      7 out of   117 (6%)
+   Number of LUT4s:           940 out of  5280 (18%)
+      Number of logic LUT4s:             750
+      Number of inserted feedthru LUT4s: 110
+      Number of replicated LUT4s:          4
+      Number of ripple logic:             38 (76 LUT4s)
+   Number of IO sites used:   18 out of 39 (46%)
+      Number of IO sites used for general PIO: 18
+      Number of IO sites used for I3C: 0 out of 2 (0%)
+      (note: If I3C is not used, its site can be used as general PIO)
+      Number of IO sites used for PIO+I3C: 18 out of 36 (50%)
+      Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
+      (note: If RGB LED drivers are not used, sites can be used as OD outputs,
+       see TN1288 iCE40 LED Driver Usage Guide)
+      Number of IO sites used for PIO+I3C+OD+RGB: 18 out of 39 (46%)
+   Number of DSPs:             0 out of 8 (0%)
+   Number of I2Cs:             0 out of 2 (0%)
+   Number of High Speed OSCs:  0 out of 1 (0%)
+   Number of Low Speed OSCs:   1 out of 1 (100%)
+   Number of RGB PWM:          0 out of 1 (0%)
+   Number of RGB Drivers:      0 out of 1 (0%)
+   Number of SCL FILTERs:      0 out of 2 (0%)
+   Number of SRAMs:            1 out of 4 (25%)
+   Number of WARMBOOTs:        0 out of 1 (0%)
+   Number of SPIs:             0 out of 2 (0%)
+   Number of EBRs:             3 out of 30 (10%)
+   Number of PLLs:             1 out of 1 (100%)
+   Number of Clocks:  3
+      Net clk: 226 loads, 226 rising, 0 falling (Driver: Pin pll20.lscc_pll_inst.u_PLL_B/OUTGLOBAL)
+      Net CLK_IN_c: 1 loads, 1 rising, 0 falling (Driver: Port CLK_IN)
+      Net SW_DISP_CLK_c: 35 loads, 14 rising, 21 falling (Driver: Pin ls_clk.lclk/CLKLF)
+   Number of Clock Enables:  28
+      Net VCC_net: 11 loads, 0 SLICEs
+      Net clk_enable_5: 5 loads, 0 SLICEs
+      Net cnt4_1__N_321: 1 loads, 1 SLICEs
+      Net cnt12_3__N_313: 1 loads, 1 SLICEs
+      Net sel[3]: 8 loads, 8 SLICEs
+      Net icy40_fart.c_fart_transmitter.c_tx_rfifo.fifo_stage[2].ffsl.tx_data_0__N_584: 8 loads, 8 SLICEs
+      Net icy40_fart.c_fart_transmitter.c_tx_rfifo.fifo_stage[1].ffsl.data_1__0__N_600: 8 loads, 8 SLICEs
+      Net we: 1 loads, 0 SLICEs
+      Net icy40_fart.c_fart_transmitter.c_tx_fsm.tx_shift_reg_1__N_714: 9 loads, 9 SLICEs
+      Net icy40_fart.c_fart_transmitter.c_tx_fsm.tx_shift_cs_0__N_605: 4 loads, 4 SLICEs
+      Net icy40_fart.c_fart_receiver.rx_shift_cs_0__N_609: 4 loads, 4 SLICEs
+      Net icy40_fart.c_fart_receiver.c_rx_rfifo.fifo_stage[2].ffsl.s_dout_rx_0__N_366: 8 loads, 8 SLICEs
+      Net icy40_fart.c_fart_receiver.c_rx_rfifo.fifo_stage[1].ffsl.data_1__0__N_617: 8 loads, 8 SLICEs
+      Net icy40_fart.c_fart_receiver.c_rx_fsm.rx_data_0__N_592: 8 loads, 8 SLICEs
+      Net up.dout_0__N_60: 16 loads, 16 SLICEs
+      Net up.status.flags_4__N_89: 1 loads, 1 SLICEs
+      Net up.se: 3 loads, 3 SLICEs
+      Net up.status.flags_0__N_91: 1 loads, 1 SLICEs
+      Net up.stackpointer.sp_0__N_561: 5 loads, 5 SLICEs
+      Net up.pc.pco_0__N_228: 9 loads, 9 SLICEs
+      Net up.iw: 1 loads, 0 SLICEs
+      Net up.ir: 1 loads, 0 SLICEs
+      Net up.imask_0__N_576: 4 loads, 4 SLICEs
+      Net sw_disp.digit_dp_0__N_311: 4 loads, 4 SLICEs
+      Net sw_disp.switches_in_0__N_79: 8 loads, 8 SLICEs
+      Net sw_disp.digit_data_0__N_307: 16 loads, 16 SLICEs
+      Net br_rd: 2 loads, 0 SLICEs
+      Net br_wr: 2 loads, 0 SLICEs
+   Number of LSRs:  10
+      Pin BTN[4]: 4 loads, 4 SLICEs (Net: BTN_c_4)
+      Net reset: 41 loads, 41 SLICEs
+      Net cnt4_1__N_321: 3 loads, 3 SLICEs
+      Net state_r: 9 loads, 9 SLICEs
+      Net icy40_fart.fart_dout_2__N_85: 6 loads, 6 SLICEs
+      Net icy40_fart.c_fart_transmitter.peprev_state_ff_N_696: 3 loads, 3 SLICEs
+      Net icy40_fart.c_fart_transmitter.c_tx_fsm.c_tx_baudtick.tx_clk_counter_0__N_634: 8 loads, 8 SLICEs
+      Net icy40_fart.c_fart_receiver.c_rx_fsm.c_rx_baudtick.rx_clk_counter_0__N_650: 8 loads, 8 SLICEs
+      Net sw_disp.sreg12_0__N_346: 1 loads, 1 SLICEs
+      Net sw_disp.cnt4_1__N_322: 1 loads, 1 SLICEs
+   Top 10 highest fanout non-clock nets:
+      Net opc15_8[2]: 60 loads
+      Net up.opc15_8[0]: 57 loads
+      Net state_0: 52 loads
+      Net up.opc15_8[7]: 48 loads
+      Net up.opc15_8[3]: 45 loads
+      Net up.opc15_8[1]: 43 loads
+      Net reset: 41 loads
+      Net up.opc15_8[6]: 41 loads
+      Net up.opc15_8[5]: 35 loads
+      Net up.opc15_8[4]: 33 loads
+Running physical design DRC...
+
+ 
+
+   Number of warnings:  84
+   Number of errors:    0
+
+Constraint Summary:
+   Total number of constraints: 42
+   Total number of constraints dropped: 21
+
+
+Total CPU Time: 0 secs  
+Total REAL Time: 0 secs  
+Peak Memory Usage: 70 MB
+
+
+par -f "ec16_on_ice_impl_1.p2t" "ec16_on_ice_impl_1_map.udb" "ec16_on_ice_impl_1.udb"
+
+Lattice Place and Route Report for Design "ec16_on_ice_impl_1_map.udb"
+Wed Jan 31 23:56:50 2024
+
+PAR: Place And Route Radiant Software (64-bit) 2023.1.1.200.1.
+Command Line: par -w -t 1 -cores 1 -exp parPathBased=ON \
+	ec16_on_ice_impl_1_map.udb ec16_on_ice_impl_1_par.dir/5_1.udb 
+
+Loading ec16_on_ice_impl_1_map.udb ...
+Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/2023.1/ispfpga.
+Package Status:                     Preliminary    Version 1.5.
+Performance Hardware Data Status:   Advanced       Version 1.0.
+
+
+
+Design:  icy40
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:   High-Performance_1.2V
+Skipping device clock for pll20.lscc_pll_inst.u_PLL_B/OUTGLOBAL
+User defined clock being used
+WARNING <70009502> - The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+WARNING <70009502> - The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+Number of Signals: 1322
+Number of Connections: 3807
+Device utilization summary:
+
+   SLICE (est.)     502/2640         19% used
+     LUT            940/5280         18% used
+     REG            257/5280          5% used
+   PIO               18/56           32% used
+                     18/36           50% bonded
+   IOLOGIC            7/56           13% used
+   DSP                0/8             0% used
+   I2C                0/2             0% used
+   HFOSC              0/1             0% used
+   LFOSC              1/1           100% used
+   LEDDA_IP           0/1             0% used
+   RGBA_DRV           0/1             0% used
+   FILTER             0/2             0% used
+   SRAM               1/4            25% used
+   WARMBOOT           0/1             0% used
+   SPI                0/2             0% used
+   EBR                3/30           10% used
+   PLL                1/1           100% used
+   RGBOUTBUF          0/3             0% used
+   I3C                0/2             0% used
+   OPENDRAIN          0/3             0% used
+
+Pin Constraint Summary:
+   18 out of 18 pins locked (100% locked).
+
+Finished Placer Phase 0 (HIER). CPU time: 0 secs , REAL time: 0 secs 
+
+
+.....................
+Finished Placer Phase 0 (AP).  CPU time: 0 secs , REAL time: 2 secs 
+
+Starting Placer Phase 1. CPU time: 0 secs , REAL time: 2 secs 
+..  ..
+....................
+
+Placer score = 273933.
+
+Device SLICE utilization summary after final SLICE packing:
+   SLICE            501/2640         18% used
+
+Skipping device clock for pll20.lscc_pll_inst.u_PLL_B/OUTGLOBAL
+User defined clock being used
+WARNING <70009502> - The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+WARNING <70009502> - The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+Finished Placer Phase 1. CPU time: 4 secs , REAL time: 11 secs 
+
+Starting Placer Phase 2.
+.
+
+Placer score =  289827
+Finished Placer Phase 2.  CPU time: 4 secs , REAL time: 11 secs 
+
+
+------------------ Clock Report ------------------
+
+Global Clocks :
+  PRIMARY "clk" from OUTGLOBAL on comp "pll20.lscc_pll_inst.u_PLL_B" on site "PLL_R13C32", clk load = 140, ce load = 0, sr load = 0
+  PRIMARY "SW_DISP_CLK_c" from comp "ls_clk.lclk" on site "LFOSC_R26C32", clk load = 22, ce load = 0, sr load = 0
+
+  PRIMARY  : 2 out of 8 (25%)
+
+--------------- End of Clock Report ---------------
+
+
+I/O Usage Summary (final):
+   18 out of 56 (32.1%) I/O sites used.
+   18 out of 36 (50.0%) bonded I/O sites used.
+   Number of I/O components: 18; differential: 0
+   Number of Vref pins used: 0
+
+I/O Bank Usage Summary:
++----------+----------------+------------+------------+------------+
+| I/O Bank | Usage          | Bank Vccio | Bank Vref1 | Bank Vref2 |
++----------+----------------+------------+------------+------------+
+| 0        | 11 / 14 ( 78%) | 3.3V       |            |            |
+| 1        | 4 / 14 ( 28%)  | 3.3V       |            |            |
+| 2        | 3 / 8 ( 37%)   | 3.3V       |            |            |
++----------+----------------+------------+------------+------------+
+
+Total Placer CPU time: 4 secs , REAL time: 11 secs 
+
+Writing design to file ec16_on_ice_impl_1_par.dir/5_1.udb ...
+
+
+Start NBR router at 23:57:02 01/31/24
+
+*****************************************************************
+Info: NBR allows conflicts(one node used by more than one signal)
+      in the earlier iterations. In each iteration, it tries to  
+      solve the conflicts while keeping the critical connections 
+      routed as short as possible. The routing process is said to
+      be completed when no conflicts exist and all connections   
+      are routed.                                                
+Note: NBR uses a different method to calculate timing slacks. The
+      worst slack and total negative slack may not be the same as
+      that in timing report. You should always run the timing    
+      tool to verify your design.                                
+*****************************************************************
+
+Starting routing resource preassignment
+Preassignment Summary:
+--------------------------------------------------------------------------------
+327 connections routed with dedicated routing resources
+2 global clock signals routed
+489 connections routed (of 3622 total) (13.50%)
+---------------------------------------------------------
+Clock routing summary:
+Primary clocks (2 used out of 8 available):
+#5  Signal "SW_DISP_CLK_c"
+       Clock   loads: 22    out of    22 routed (100.00%)
+       Data    loads: 0     out of     1 routed (  0.00%)
+#7  Signal "clk"
+       Clock   loads: 140   out of   140 routed (100.00%)
+Other clocks:
+    Signal "CLK_IN_c"
+       Clock   loads: 0     out of     1 routed (  0.00%)
+    Signal "pll20.lscc_pll_inst.feedback_w"
+       Clock   loads: 1     out of     1 routed (100.00%)
+---------------------------------------------------------
+--------------------------------------------------------------------------------
+Completed routing resource preassignment
+Skipping device clock for pll20.lscc_pll_inst.u_PLL_B/OUTGLOBAL
+User defined clock being used
+WARNING <70009502> - The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+WARNING <70009502> - The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+    TimerIf::skewscore 0
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Routing in Serial Mode ......
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Start NBR section for initial routing at 23:57:02 01/31/24
+Level 4, iteration 1
+185(0.07%) conflicts; 0(0.00%) untouched conn; 38848 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.269ns/-38.849ns; real time: 3 secs 
+
+Info: Initial congestion level at 75.00% usage is 0
+Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
+
+Start NBR section for normal routing at 23:57:05 01/31/24
+Level 4, iteration 1
+39(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.027ns/0.000ns; real time: 4 secs 
+Level 4, iteration 2
+23(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.027ns/0.000ns; real time: 4 secs 
+Level 4, iteration 3
+7(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.027ns/0.000ns; real time: 4 secs 
+Level 4, iteration 4
+5(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.027ns/0.000ns; real time: 4 secs 
+Level 4, iteration 5
+2(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.027ns/0.000ns; real time: 4 secs 
+Level 4, iteration 6
+2(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.027ns/0.000ns; real time: 4 secs 
+Level 4, iteration 7
+1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.027ns/0.000ns; real time: 4 secs 
+Level 4, iteration 8
+0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.027ns/0.000ns; real time: 4 secs 
+
+Start NBR section for setup/hold timing optimization with effort level 3 at 23:57:06 01/31/24
+Changing speed to M
+
+Starting full timing analysis...
+Changing speed to M;   changing temperature to -40
+Changing speed to 6;   changing temperature to 100
+
+Start NBR section for post-routing at 23:57:06 01/31/24
+
+End NBR router with 0 unrouted connection
+Skipping device clock for pll20.lscc_pll_inst.u_PLL_B/OUTGLOBAL
+User defined clock being used
+WARNING <70009502> - The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+WARNING <70009502> - The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+Requested speed is the same as database speed
+Changing speed to M
+
+Starting full timing analysis...
+Requested speed is the same as database speed
+Changing speed to 6;   changing temperature to 100
+
+NBR Summary
+-----------
+  Number of unrouted connections : 0 (0.00%)
+  Estimated worst slack<setup> : 3.124ns
+  Estimated worst slack<hold > : 1.743ns
+  Timing score<setup> : 0
+  Timing score<hold > : 0
+  Number of connections with timing violations<setup> : 0 (0.00%)
+  Number of connections with timing violations<hold > : 0 (0.00%)
+-----------
+
+
+Total CPU time 2 secs 
+Total REAL time: 5 secs 
+Completely routed.
+End of route.  3622 routed (100.00%); 0 unrouted.
+
+Writing design to file ec16_on_ice_impl_1_par.dir/5_1.udb ...
+
+
+PAR_SUMMARY::Run status = Completed
+PAR_SUMMARY::Number of unrouted conns = 0
+PAR_SUMMARY::Worst  slack<setup/<ns>> = 3.124
+PAR_SUMMARY::Timing score<setup/<ns>> = 0.000
+PAR_SUMMARY::Worst  slack<hold /<ns>> = 1.743
+PAR_SUMMARY::Timing score<hold /<ns>> = 0.000
+PAR_SUMMARY::Number of errors = 0
+
+Total CPU  Time: 6 secs 
+Total REAL Time: 18 secs 
+Peak Memory Usage: 132.40 MB
+
+
+par done!
+
+Note: user must run 'timing' for timing closure signoff.
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
+
+timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -sp High-Performance_1.2V -hsp m   -pwrprd -html -rpt "ec16_on_ice_impl_1.twr" "ec16_on_ice_impl_1.udb" 
+timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -sp High-Performance_1.2V -hsp m -pwrprd -html -rpt ec16_on_ice_impl_1.twr ec16_on_ice_impl_1.udb -gui
+Starting design reading...
+Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/2023.1/ispfpga.
+Package Status:                     Preliminary    Version 1.5.
+Performance Hardware Data Status:   Advanced       Version 1.0.
+Loading udb::Database ...
+Design:  icy40
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:   High-Performance_1.2V
+
+
+
+Successfully loading udb, 0.02 seconds
+
+Initializing timer
+Starting design annotation....
+Skipping device clock for pll20.lscc_pll_inst.u_PLL_B/OUTGLOBAL
+User defined clock being used
+WARNING <70009502> - The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+WARNING <70009502> - The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+High-Performance_1.2V
+
+Starting full timing analysis...
+Performance Hardware Data Status:   Advanced       Version 1.0.
+Connections ignored  164  counted  3425  covered  3389
+Changing speed to m;   changing temperature to -40
+
+STA Runtime and Peak Memory Usage :
+Total CPU Time: 1 secs 
+Total REAL Time: 2 secs 
+Peak Memory Usage: 103 MB
+
+ 2.602980s wall, 1.156250s user + 0.046875s system = 1.203125s CPU (46.2%)
+
