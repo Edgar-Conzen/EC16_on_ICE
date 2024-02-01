@@ -2,10 +2,10 @@
 
 <clocks>
     <clockitem name = "CLK_IN"  type = "port" />
-    <clockitem name = "SW_DISP_CLK"  type = "port" />
     <clockitem name = "clk"  type = "net" />
-    <clockitem name = "pll20/lscc_pll_inst/outglobalb_o"  type = "net" />
+    <clockitem name = "SW_DISP_CLK"  type = "port" />
     <clockitem name = "pll20/lscc_pll_inst/outcoreb_o"  type = "net" />
+    <clockitem name = "pll20/lscc_pll_inst/outglobalb_o"  type = "net" />
     <clockitem name = "pll20/outcore_o"  type = "net" />
 </clocks>
 

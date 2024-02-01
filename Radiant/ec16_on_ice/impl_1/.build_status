@@ -15,9 +15,9 @@
             <Task name="PARTrace" build_result="0" update_result="3" update_time="0"/>
             <Task name="IOTiming" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
-        <Milestone name="Synthesis" build_result="0" build_time="0">
-            <Task name="Lattice_Synthesis" build_result="0" update_result="3" update_time="0"/>
-            <Task name="LSE_Compile" build_result="0" update_result="3" update_time="0"/>
+        <Milestone name="Synthesis" build_result="2" build_time="1706745124">
+            <Task name="Lattice_Synthesis" build_result="2" update_result="0" update_time="1706745124"/>
+            <Task name="LSE_Compile" build_result="2" update_result="0" update_time="1706745124"/>
             <Task name="SynTrace" build_result="0" update_result="3" update_time="0"/>
             <Task name="SynVerilogSimFile" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
@@ -28,9 +28,10 @@
         <Report name="ec16_on_ice_impl_1.twr.html" last_build_time="1706741830" last_build_size="339564"/>
         <Report name="ec16_on_ice_impl_1.udb" last_build_time="1706741828" last_build_size="153955"/>
         <Report name="ec16_on_ice_impl_1_map.udb" last_build_time="1706741810" last_build_size="94449"/>
-        <Report name="ec16_on_ice_impl_1_rtl.udb" last_build_time="1706741793" last_build_size="54379"/>
-        <Report name="ec16_on_ice_impl_1_syn.udb" last_build_time="1706741796" last_build_size="74178"/>
+        <Report name="ec16_on_ice_impl_1_rtl.udb" last_build_time="1706745121" last_build_size="54379"/>
+        <Report name="ec16_on_ice_impl_1_syn.udb" last_build_time="1706745124" last_build_size="74178"/>
         <Report name="ec16_on_ice_impl_1_vo.sdf" last_build_time="1706739324" last_build_size="721169"/>
         <Report name="ec16_on_ice_impl_1_vo.vo" last_build_time="1706739324" last_build_size="679024"/>
     </Strategy>
 </BuildStatus>
+    

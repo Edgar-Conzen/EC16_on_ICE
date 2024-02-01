@@ -1,5 +1,5 @@
 // Verilog netlist produced by program LSE :  version Radiant Software (64-bit) 2023.1.1.200.1
-// Netlist written on Wed Jan 31 23:56:36 2024
+// Netlist written on Thu Feb  1 00:52:03 2024
 // Source file index table: 
 // Object locations will have the form @<file_index>(<first_ line>[<left_column>],<last_line>[<right_column>])
 // file 0 "c:/git/ec16_on_ice/radiant/ec16_on_ice/pll_25_20/rtl/pll_25_20.v"
