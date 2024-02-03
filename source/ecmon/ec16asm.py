@@ -687,16 +687,24 @@ with open(listing_name, 'w', encoding="utf-8") as listing:
 # #############################################m###
 
 ldlisting = []   # main.ld   Hex-Listing for upload via terminal 
+ecmonlisting = []  # main.ecm  Hex listing in ecmon notation
 hexlisting = []  # main.mem  Hex-Listing as init file for FPGA
 hexline = ''
 memcount = 0
 code_addr = 0
+load_addr : int = 0
+ecm_full_lines : int = 0
+ecm_last_line : int = 0
+ecm_words : int = 0
+ldptr : int = 0
 
+# find first address (instruction or dw_e) because this is the load address
 for line in code:
     if (line[C_MNE] in mnemonics) or (line[C_MNE] == 'dw_e') :
         memcount = getnum(line[C_ADDR])
         break
 
+load_addr = memcount
 ldlisting.append(line[C_ADDR][2:])
 
 for line in code :
@@ -731,7 +739,40 @@ for line in code :
             memcount += 1
         continue
 
+ecm_full_lines = int((len(ldlisting)-1) / 8)
+ecm_last_line =  int((len(ldlisting)-1) % 8)
 ldlisting.append('\n')
+
+ldptr = 1
+
+while ecm_full_lines > 0:
+    ecmonlisting.append('{:04x}'.format(load_addr))
+    ecmonlisting.append('=')
+    ecm_words=0
+    while ecm_words < 7:
+        ecmonlisting.append(ldlisting[ldptr].lower())
+        ecmonlisting.append(' ')
+        ldptr += 1
+        ecm_words += 1
+    ecmonlisting.append(ldlisting[ldptr].lower())
+    ecmonlisting.append('\n')
+    ldptr += 1
+    load_addr+=8
+    ecm_full_lines -= 1
+
+if ecm_last_line > 0:
+    ecmonlisting.append('{:04x}'.format(load_addr))
+    ecmonlisting.append('=')
+    ecm_words=0
+    while ecm_words < ecm_last_line-1:
+        ecmonlisting.append(ldlisting[ldptr].lower())
+        ecmonlisting.append(' ')
+        ldptr += 1
+        ecm_words += 1
+    ecmonlisting.append(ldlisting[ldptr].lower())
+    ecmonlisting.append('\n')
+
+
 
 # memcount = 255 - ((memcount - 1) % 256) 
 # while memcount > 0 :
@@ -741,16 +782,21 @@ ldlisting.append('\n')
 filename = sys.argv[1]
 hexlisting_name = Path(filename).stem + '.mem'
 ldlisting_name = Path(filename).stem + '.ld'
+ecmlisting_name = Path(filename).stem + '.ecm'
 
 with open(hexlisting_name, 'w', encoding="utf-8") as listing:
     listing.writelines(hexlisting)
 
-with open(ldlisting_name, 'w', encoding="utf-8") as listing:
-    listing.writelines(ldlisting)
+#with open(ldlisting_name, 'w', encoding="utf-8") as listing:
+#    listing.writelines(ldlisting)
+
+with open(ecmlisting_name, 'w', encoding="utf-8") as listing:
+    listing.writelines(ecmonlisting)
 
 print('\n S U C C E S S \n')
 print('Assembly complete without errors')
 print('Generated the following files :')
 print(' -  ', listing_name, '  (full listing)')
 print(' -  ', hexlisting_name, '  (hex data for FPGA memory)')
-print(' -  ', ldlisting_name, '   (hex data for upload via terminal)')
+#print(' -  ', ldlisting_name, '   (hex data for upload via terminal)')
+print(' -  ', ecmlisting_name, '  (hex data for upload with ECMON via terminal)')
