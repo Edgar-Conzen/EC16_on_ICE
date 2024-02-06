@@ -17,8 +17,6 @@ EC16 softcore CPU running ECMON @ 20MHz on an ICE40UP5K-SG48 (ICY40-Board)
   * PLL                1/1           100% used
    
 
-* ECMON monitor program in EC16 assembler source code including the ec16asm.py assembler
-
 ## The EC16 CPU
 is word oriented, i.e both data and address bus are 16 bit wide. There are two completely separate memory spaces, the 64K x 16 bit external memory space (EXTMEM) and a small but faster accessible 256 x 16 bit internal memory (INTMEM). 
 
@@ -32,6 +30,14 @@ Thanks to the instruction prefetch the execution speed is rather high
   * 15 instructions execute in 2 clock cycles
   * 9 instructions execute in 3 clock cycles
   * 8 instructions (branch) execute in 1 resp. 2 clock cycles (no branch / branch)
+
+See the CPUs manual ![EC16 ISA V1.0](EC16_ISA_V1.0.pdf)
+
+## ECMON monitor program 
+written in EC16 assembler. Display and alter content of INTMEM and EXTMEM and start execution of user programs. 
+
+Included is the assembler ec16asm.py 
+
 
 ## The ICY40 top entity 
 adds the following components to the EC16
