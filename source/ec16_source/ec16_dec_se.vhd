@@ -34,7 +34,7 @@ begin
 	y1 <= '1' when opc(11 downto 8) = "0010"  else '0';
 
 	se <=	(x1 and y1) or     -- mov flags a
-			x2 or              -- rol, ror, shl, shr, not
+			x2 or              -- swap, rol, ror, shl, shr, not
 			(x3 and state_1);  -- sub(b), add(c), cmp, dec, inc, and, or, xor 
 
 end architecture;

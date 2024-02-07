@@ -52,6 +52,7 @@ instructions : tuple = (('add', 'a', '#U8', '0x4300'),
                         ('shr', 'a', '', '0x2B00'),
                         ('sub', 'a', '#U8', '0x4200'),
                         ('subb', 'a', '#U8', '0x4000'),
+                        ('swap', 'a', '', '0x2500'),
                         ('xor', 'a', '#U8', '0x4E00'))
 
 # named constants for columns of table 'instructions'

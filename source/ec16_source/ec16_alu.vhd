@@ -56,7 +56,7 @@ begin
 	-- 0010=SUB
 	-- 0011=ADD
 	-- 0100=CMP
-	-- 0101=xxx
+	-- 0101=SWAP
 	-- 0110=DEC
 	-- 0111=INC
 	-- 1000=ROL
@@ -110,13 +110,13 @@ begin
 		c_shift	<=	a_in(15) when "1000" | "1010",  -- ROL /SHL
 					a_in(0) when others; -- ROR /SHR (and others)
 					
-	
+
 	-- select output function according to fn
 	with fn select
-		result	<=	sum (15 downto 0) when "0000" | "0001" | "0010" | "0011" | "0100" | "0101" | "0110" | "0111",
+		result	<=	sum (15 downto 0) when "0000" | "0001" | "0010" | "0011" | "0100" | "0110" | "0111",
+					a_in(7 downto 0) & a_in(15 downto 8) when "0101",
 					shift when "1000" | "1001" | "1010" | "1011",
 					logic when others;
-	
 	res_out <= result;
 	
 
@@ -136,8 +136,8 @@ begin
 	-- Addition : (NEG + NEG = POS)  OR  (POS + POS = NEG)         OV =  S15 & !A15 &  !B15  |  !S15 & A15 & B15  
 	-- Subtraction :  (POS - NEG = NEG)  OR  (NEG - POS = POS)     OV =  !S15 & A15 &  !B15  |  S15 & !A15 & B15
 	with fn select
-		over <=		( (not a_in(15)) and b_in(15) and sum(15) ) or ( a_in(15) and (not b_in(15)) and (not sum(15)) ) when "0000" | "0010" | "0100", -- A-B, CMP
-					( (not a_in(15)) and (not b_in(15)) and sum(15) ) or ( a_in(15) and b_in(15) and (not sum(15)) ) when "0001" | "0011", -- A+B
+		over <=		( (not a_in(15)) and b_in(15) and sum(15) ) or ( a_in(15) and (not b_in(15)) and (not sum(15)) ) when "0000" | "0010" | "0100", -- SUBB, SUB, CMP
+					( (not a_in(15)) and (not b_in(15)) and sum(15) ) or ( a_in(15) and b_in(15) and (not sum(15)) ) when "0001" | "0011", -- ADDC, ADD
 					'0' when others;
 	
 	-- zero flag output
