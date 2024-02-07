@@ -34,9 +34,10 @@ Thanks to the instruction prefetch the execution speed is rather high
 See the CPUs manual ![EC16 ISA V1.0](EC16_ISA_V1.0.pdf)
 
 ## ECMON monitor program 
-written in EC16 assembler. Display and edit content of INTMEM and EXTMEM, upload and start execution of user programs. 
+written in EC16 assembler and preloaded into the boot ram at power up.
 
-Included is the assembler ec16asm.py 
+It's a simple tool to display and edit the contents of INTMEM and EXTMEM and to upload and start user programs.<br>
+Also included is the assembler ec16asm.py 
 
 
 ## The ICY40 top entity 
