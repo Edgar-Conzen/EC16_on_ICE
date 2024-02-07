@@ -8,8 +8,8 @@ EC16 softcore CPU running ECMON @ 20MHz on an ICE40UP5K-SG48 (ICY40-Board)
 
 * Device utilization (less than 20% of the ICE40UP5Ks logic resources):
   
-  * SLICE (est.)     500/2640       19% used
-    * LUT            939/5280         18% used
+  * SLICE (est.)     499/2640       19% used
+    * LUT            940/5280         18% used
     * REG            257/5280          5% used
   * LFOSC              1/1           100% used
   * SRAM               1/4            25% used
@@ -24,9 +24,9 @@ While the EXTMEM space can be populated as required with on-chip ram, rom and I/
 
 The EC16 has four maskable prioritized interrupt inputs. 
 
-It has 49 instructions, 45 of which use only 1 word of program memory while the other 4 use two words. 
+It has 50 instructions, 46 of which use only 1 word of program memory while the other 4 use two words. 
 Thanks to the instruction prefetch the execution speed is rather high
-  * 17 instructions execute in 1 clock cycle
+  * 18 instructions execute in 1 clock cycle
   * 15 instructions execute in 2 clock cycles
   * 9 instructions execute in 3 clock cycles
   * 8 instructions (branch) execute in 1 resp. 2 clock cycles (no branch / branch)
