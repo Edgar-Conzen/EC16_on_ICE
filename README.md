@@ -62,7 +62,7 @@ memory map (base addresses)
 ### Screenshot of the top entity showing the EC16 and all supporting components
 ![Top of design](/images/EC16_on_ICE_Top.jpg)
 
-### The design of the EC16 was first developed with logisim-evolution and then transferred to VHDL.  
+### The EC16 was first designed with logisim-evolution and then transferred to VHDL.  
 The following screen shot gives a good idea of the CPUs structure.  
 ![EC16 in Logisim Evolution](/images/EC16%20Logisim%20Evolution%20top%20sheet.jpg)
 
