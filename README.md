@@ -1,20 +1,18 @@
 # EC16_on_ICE
-EC16 softcore CPU running ECMON @ 20MHz on an ICE40UP5K-SG48 (ICY40-Board)
+EC16 softcore CPU running @ 20MHz on an ICE40UP5K-SG48 (ICY40-Board)
 
-* Complete Lattice Radiant project (2023.1.1.200.1 ) with VHDL sources
-  * EC16 CPU
-  * ICY40 board specific top entity
+* Complete Lattice Radiant project (2023.1.1.200.1 ) with VHDL sources of
+  * EC16 CPU (16-bit wide data and address)
+  * ICY40 board specific top entity with bootram, 16Kx16 ram, I/O and
   * FART (Fixed Asynchronous Receiver Transmitter, 115.200 baud, 8-N-1)
 
-* Device utilization (less than 20% of the ICE40UP5Ks logic resources):
+* Very economical device utilization, less than 20% of the ICE40UP5Ks logic resources:
   
   * SLICE (est.)     499/2640       19% used
     * LUT            940/5280         18% used
     * REG            257/5280          5% used
-  * LFOSC              1/1           100% used
-  * SRAM               1/4            25% used
   * EBR                3/30           10% used
-  * PLL                1/1           100% used
+  * SRAM               1/4            25% used
    
 
 ## The EC16 CPU
@@ -31,7 +29,7 @@ Thanks to the instruction prefetch the execution speed is rather high
   * 9 instructions execute in 3 clock cycles
   * 8 instructions (branch) execute in 1 resp. 2 clock cycles (no branch / branch)
 
-See the CPUs manual ![EC16 ISA V1.0](EC16_ISA_V1.0.pdf)
+See the CPUs manual ![ EC16 ISA V1.0 ](EC16_ISA_V1.0.pdf)
 
 ## ECMON monitor program 
 written in EC16 assembler and preloaded into the boot ram at power up.
@@ -59,11 +57,13 @@ memory map (base addresses)
   * 0x8000 .. 0xBFFF
 	   * (r/w) SPRAM (16kWords)
 
+### This is the ICY40 learning board.
+![EC16 CPU running on ICY40](/images/EC16%20on%20ICY40.jpg)  
+### Screenshot of the top entity showing the EC16 and all supporting components
+![Top of design](/images/EC16_on_ICE_Top.jpg)
 
-![EC16 CPU running on ICY40](EC16%20on%20ICY40.jpg)
-![Top of design](EC16_on_ICE_view.jpg)
+### The design of the EC16 was first developed with logisim-evolution and then transferred to VHDL.  
+The following screen shot gives a good idea of the CPUs structure.  
+![EC16 in Logisim Evolution](/images/EC16%20Logisim%20Evolution%20top%20sheet.jpg)
 
-The design was first developed with logisim-evolution and then transferred to VHDL. The following screen shot gives an idea of the CPUs structure
-
-![EC16 in Logisim Evolution](/source/ec16_source/EC16%20Logisim%20Evolution%20top%20sheet.jpg)
-
+## For more information see the ![Wiki page](https://github.com/Edgar-Conzen/EC16_on_ICE/wiki)
