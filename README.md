@@ -58,7 +58,7 @@ memory map (base addresses)
 	   * (r/w) SPRAM (16kWords)
 
 ### This is the ICY40 learning board.
-![EC16 CPU running on ICY40](/images/EC16%20on%20ICY40.jpg)  
+![EC16 CPU running on ICY40](/images/IMG_20240617_120016.jpg)  
 ### Screenshot of the top entity showing the EC16 and all supporting components
 ![Top of design](/images/EC16_on_ICE_Top.jpg)
 
